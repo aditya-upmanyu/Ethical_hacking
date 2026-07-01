@@ -1,0 +1,188 @@
+#day1 => 1-july-26 
+Module 1
+Introduction to Cyber Security
+
+TRYHACKME ROOM 1 - OFFENSIVE SECURITY
+OFFENSIVE SECURITY
+• Offensive Security means thinking like an attacker to find vulnerabilities before real hackers do.
+• Performed legally with permission to improve security.
+• Professionals: Ethical Hackers, Penetration Testers, Security Researchers.
+PENETRATION TESTING (PENTESTING)
+• Simulating real-world cyber attacks to identify weaknesses.
+• Main Phases: Reconnaissance → Enumeration → Exploitation → Reporting.
+ENUMERATION
+• Process of gathering information about a target.
+• Helps identify hidden pages, services, users, technologies, and vulnerabilities.
+• Rule: Better Enumeration = Easier Exploitation.
+DIRB
+• Web directory brute-forcing tool.
+• Used to discover hidden files and directories on websites.
+• Uses a wordlist to guess URLs.
+COMMAND LEARNED
+dirb http://fakebank.thm
+OUTPUT ANALYSIS
+•	http://fakebank.thm/images
+•	http://fakebank.thm/bank-transfer
+'+' indicates a valid resource was found.
+HIDDEN DIRECTORIES FOUND
+• /images
+• /bank-transfer
+VULNERABILITY IDENTIFIED
+Broken Access Control
+• Occurs when users can access resources they are not authorized to use.
+• The hidden admin page (/bank-transfer) was accessible without proper authorization.
+ADMIN PANEL EXPLOIT
+• Accessed hidden page: /bank-transfer
+• Selected account 8881.
+• Deposited money.
+• Received flag after balance became positive.
+TOOL LEARNED
+• DIRB – Directory/File Enumeration Tool
+KEY TERMS
+• Vulnerability: A weakness in a system.
+• Exploit: Taking advantage of a vulnerability.
+• Enumeration: Information gathering phase.
+• Admin Panel: Administrative interface of an application.
+• Access Control: Restricts access to authorized users only.
+ROOM SUMMARY
+Offensive Security → Enumeration → DIRB Scan → Hidden Page Discovery → Broken Access Control → Admin Panel Access → Flag Obtained
+TRYHACKME ROOM 2 - THINK LIKE A DEFENDER
+DEFENSIVE SECURITY
+• Defensive Security focuses on protecting systems, networks, and data from attacks.
+• Goal: Detect, investigate, and respond to threats before damage occurs.
+• Unlike Offensive Security, defenders do not attack systems; they monitor and protect them.
+SECURITY OPERATIONS CENTER (SOC)
+• A team responsible for monitoring and defending an organization's systems.
+• SOC Analysts investigate alerts, suspicious activity, and security incidents.
+SOC ANALYST RESPONSIBILITIES
+• Monitor security events and alerts.
+• Detect suspicious activity.
+• Investigate incidents.
+• Respond to attacks.
+• Improve security controls.
+MONITORING
+• Continuous observation of systems and network activity.
+• Helps identify unusual or malicious behavior.
+• Uses dashboards, logs, alerts, and security tools.
+ALERTS
+• Notifications generated when suspicious activity is detected.
+• Analysts review alerts to determine if they are legitimate threats or false positives.
+SUSPICIOUS ACTIVITY
+• Unusual behavior that may indicate an attack.
+• Examples:
+•	Multiple failed logins
+•	Rapid requests to many URLs
+•	Unexpected network traffic
+•	Access to sensitive resources
+URL DISCOVERY ATTACK
+• An attacker attempts to find hidden files and directories on a website.
+• Similar to directory brute-forcing using tools like DIRB, Gobuster, or FFUF.
+• Attackers send many requests quickly to discover hidden pages.
+INDICATORS OF COMPROMISE (IOC)
+• Evidence that an attack may be occurring.
+• Examples:
+•	Suspicious IP address
+•	Malicious URL requests
+•	Unusual login attempts
+•	Unexpected processes
+FIREWALL
+• Security device/software that controls incoming and outgoing network traffic.
+• Can allow or block connections based on rules.
+FIREWALL RULE
+• A rule that determines whether traffic is allowed or blocked.
+• Example:
+BLOCK 32.122.195.63
+CONTAINMENT
+• The first priority during an active attack.
+• Goal: Stop the attacker from causing further damage.
+• Common actions:
+•	Block attacker IP
+•	Disable compromised account
+•	Isolate infected system
+RATE LIMITING
+• Restricts the number of requests allowed within a specific time.
+• Helps prevent brute-force and enumeration attacks.
+ACCESS CONTROL
+• Restricts access to authorized users and resources only.
+• Protects sensitive pages and systems.
+TOOLS/TECHNOLOGIES LEARNED
+• Monitoring Dashboard
+• Firewall
+• Security Alerts
+• Log Analysis
+KEY TERMS
+• SOC = Security Operations Center
+• IOC = Indicator of Compromise
+• Alert = Warning of suspicious activity
+• Containment = Stopping an active attack
+• Firewall = Traffic filtering system
+ROOM SUMMARY
+Defensive Security → Monitor Activity → Detect Alert → Identify Suspicious IP → Investigate Attack → Analyze URL Discovery Attempts → Block Attacker IP → Contain Threat → Protect System
+ROOM 3 - CAREERS IN CYBER
+CYBER SECURITY CAREERS
+• Cybersecurity includes Offensive Security (attacking ethically) and Defensive Security (protecting systems).
+• Over 3.5 million cyber security positions remain unfilled worldwide.
+• High demand, good salaries, and continuous learning opportunities.
+SECURITY ANALYST (BLUE TEAM)
+• Digital defenders of an organisation.
+• Monitor, investigate, and respond to security alerts and suspicious activity.
+• Analyse logs and events to identify threats.
+• Play a major role in an organisation's defence.
+KEY RESPONSIBILITIES
+• Monitor network and device activity.
+• Investigate unusual logins and alerts.
+• Analyse incidents and determine their cause.
+• Improve organisational security.
+SPECIALIZATIONS
+• Threat Hunting
+• Incident Response
+• Malware Analysis
+IMPORTANT TERM
+• Alert: Notification generated when suspicious activity is detected.
+SECURITY ENGINEER
+• Architects of cyber security.
+• Build, configure, and maintain security systems.
+• Protect networks, applications, and devices.
+IMPORTANT TECHNOLOGY
+• IDS (Intrusion Detection System)
+•	Monitors network/system activity.
+•	Detects malicious behaviour.
+•	Functions like a digital security camera.
+KEY RESPONSIBILITIES
+• Design security solutions.
+• Maintain security tools.
+• Assess risks and vulnerabilities.
+• Document security procedures.
+SPECIALIZATIONS
+• Application Security
+• Cloud Security
+PENETRATION TESTER (ETHICAL HACKER)
+• Legally tests systems, networks, and applications for vulnerabilities.
+• Simulates real-world attacks to identify weaknesses.
+• Works under an authorised agreement called an Engagement.
+IMPORTANT TERM
+• Engagement: Official permission to perform security testing.
+KEY RESPONSIBILITIES
+• Vulnerability assessments.
+• Security audits.
+• Penetration testing.
+• Reporting and security recommendations.
+CAREER PROGRESSION
+Penetration Tester → Senior Pentester → Red Team Operator
+RED TEAM
+• Advanced offensive security role.
+• Simulates realistic attacks against an organisation.
+• Tests people, processes, and technology.
+IMPORTANT TERMS
+• Blue Team = Defenders
+• Red Team = Ethical Attackers
+• IDS = Intrusion Detection System
+• Alert = Suspicious activity notification
+• Engagement = Authorised security testing
+ROOM ANSWERS
+• Security analysts play a significant role in an organisation's DEFENCE.
+• Unfilled cyber security positions: 3.5 MILLION+
+• Device maintained by Security Engineers: INTRUSION DETECTION SYSTEM
+• Process followed by penetration testers: ENGAGEMENT
+ROOM SUMMARY
+Cyber Security → Security Analyst (Monitor & Defend) → Security Engineer (Build & Protect) → Penetration Tester (Test Security) → Red Team (Advanced Attack Simulation)
