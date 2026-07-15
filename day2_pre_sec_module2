@@ -1,1 +1,279 @@
+MODULE 2 - ROOM 1 - WHAT IS NETWORKING?
+TASK 1 - WHAT IS NETWORKING?
+• Network = Two or more connected devices that can communicate and share data.
+• Examples: Internet, power grid, transport systems, mobile networks.
+• Devices on a network can include computers, phones, servers, routers, cameras, and IoT devices.
+• Networking is a fundamental concept in Cyber Security because attackers and defenders operate across networks.
+KEY TERM
+• Network: A collection of connected devices.
+TASK 2 - WHAT IS THE INTERNET?
+• Internet = A global network made up of many smaller networks.
+• Invented through the evolution of ARPANET (1960s).
+• World Wide Web (WWW) was created by Tim Berners-Lee in 1989.
+• Networks are classified as:
+•	Private Network (Home, Office)
+•	Public Network (Internet)
+IMPORTANT CONCEPT
+• Internet ≠ WWW
+• Internet = Infrastructure/Network
+• WWW = Websites and web pages running on the Internet
+KEY TERM
+• WWW (World Wide Web): System used to access websites on the Internet.
+TASK 3 - IDENTIFYING DEVICES ON A NETWORK
+IP ADDRESS
+• IP = Internet Protocol.
+• Used to identify a device on a network.
+• IPv4 consists of 4 sections called Octets.
+• Example: 192.168.1.1
+• An IP address can change over time.
+PUBLIC VS PRIVATE IP
+• Public IP: Visible on the Internet, assigned by ISP.
+• Private IP: Used inside local networks.
+PRIVATE IP RANGES
+• 10.0.0.0 – 10.255.255.255
+• 172.16.0.0 – 172.31.255.255
+• 192.168.0.0 – 192.168.255.255
+IPv4
+• 32-bit addressing.
+• Supports approximately 4.3 billion addresses.
+IPv6
+• 128-bit addressing.
+• Supports approximately 340 undecillion addresses.
+• Created to solve IPv4 exhaustion.
+MAC ADDRESS
+• MAC = Media Access Control.
+• Physical address assigned to a network card(hardware device ).
+• Usually permanent and unique.
+• Example: a4:c3:f0:85:ac:2d
+• Consists of 12 hexadecimal characters.
+MAC SPOOFING
+• Changing/faking a MAC address to impersonate another device.
+• Used in attacks and bypassing poorly configured security systems.
+IMPORTANT DIFFERENCE
+• IP Address = Logical Address (Can Change)
+• MAC Address = Physical Address (Usually Fixed)
+KEY TERMS
+• IP = Internet Protocol
+• MAC = Media Access Control
+• Octet = Each section of an IPv4 address
+• ISP = Internet Service Provider
+TASK 4 - PING (ICMP)
+PING
+• Network utility used to test connectivity between devices.
+• Checks whether a device is reachable.
+• Measures response time (latency).
+ICMP
+• ICMP = Internet Control Message Protocol.
+• Used by Ping for communication.
+• Uses Echo Request and Echo Reply packets.
+COMMANDS
+ping 10.10.10.10
+ping 8.8.8.8
+IMPORTANT USES
+• Test network connectivity.
+• Troubleshoot network issues.
+• Measure network delay.
+• Check if a host is online.
+KEY TERMS
+• ICMP = Internet Control Message Protocol
+• Latency = Time taken for data to travel between devices
+ROOM SUMMARY
+Network → Connected Devices
+Internet → Network of Networks
+IP Address → Logical Device Identification
+MAC Address → Physical Device Identification
+IPv4 → 32-bit Addressing
+IPv6 → 128-bit Addressing
+MAC Spoofing → Faking a MAC Address
+Ping → Connectivity Testing Tool
+ICMP → Protocol Used by Ping uses echo requests and echo reply packets.
+TASK 5 - CONTINUE YOUR LEARNING: INTRO TO LAN
+LAN (Local Area Network)
+• A network that connects devices within a limited geographical area.
+• Examples: Home network, School network, Office network.
+• Devices communicate using switches, routers, and network cables/Wi-Fi.
+KEY FEATURES
+• High speed communication.
+• Privately owned and managed.
+• Used for sharing files, printers, Internet access, and resources.
+EXAMPLES OF DEVICES IN A LAN
+• Computers
+• Laptops
+• Smartphones
+• Printers
+• Servers
+• Routers
+• Switches
+WHY IMPORTANT IN CYBER SECURITY?
+• Most attacks begin inside or target a LAN.
+• Understanding LANs helps in network scanning, enumeration, traffic analysis, and defense.
+________________________________________
+TRYHACKME QUESTIONS & ANSWERS
+Q1. What is the key term for devices that are connected together?
+Ans. Network
+Q2. Who invented the World Wide Web (WWW)?
+Ans. Tim Berners-Lee
+Q3. What does the term "IP" stand for?
+Ans. Internet Protocol
+Q4. What is each section of an IP address called?
+Ans. Octet
+Q5. How many sections (octets) does an IPv4 address have?
+Ans. 4
+Q6. What does the term "MAC" stand for?
+Ans. Media Access Control
+Q7. Deploy the interactive lab and spoof your MAC address. What flag do you obtain?
+Ans. THM{YOU_GOT_ON_TRYHACKME}
+Q8. What protocol does the ping command use?
+Ans. ICMP (Internet Control Message Protocol)
+Q9. What is the syntax to ping the IP address 10.10.10.10?
+Ans.
+ping 10.10.10.10
+Q10. What flag do you get when you ping 8.8.8.8?
+Ans. THM{I_PINGED_THE_SERVER}
+Q11. Join the "Intro to LAN" room.
+Ans. No Answer Required
+
+Room 2
+
+MODULE 2 - ROOM 2 - INTRO TO LAN
+TASK 1 - LAN TOPOLOGIES & NETWORK DEVICES
+LAN (Local Area Network)
+• Connects devices within a limited area (Home, Office, School, Building).
+• Used for sharing files, printers, Internet and resources.
+• Topology = Physical/Logical design of a network.
+STAR TOPOLOGY
+• Every device connects to a central Switch/Hub.
+• Most common and highly scalable.
+• Advantages:
+•	Fast and reliable.
+•	Easy to add new devices.
+•	One cable failure affects only one device.
+• Disadvantages:
+•	Expensive.
+•	Central Switch is the Single Point of Failure (SPOF).
+BUS TOPOLOGY
+• All devices share one Backbone Cable.
+• Advantages:
+•	Cheap and easy to install.
+•	Requires less cabling.
+• Disadvantages:
+•	Backbone cable failure stops entire network.
+•	Traffic bottleneck.
+•	Difficult troubleshooting.
+RING TOPOLOGY
+• Devices connect in a circular loop.
+• Data travels in one direction through other devices.
+• Advantages:
+•	Less network congestion than Bus.
+•	Easy fault detection.
+• Disadvantages:
+•	One cable/device failure breaks the entire network.
+•	Data may travel through multiple devices, increasing delay.
+SWITCH
+• Layer 2 networking device.
+• Connects devices inside a LAN.
+• Uses MAC Address Table to forward data only to the correct destination.
+• Faster and more secure than a Hub.
+ROUTER
+• Layer 3 networking device.
+• Connects different networks (LAN ↔ Internet).
+• Performs Routing (selects the best path for packets).
+EXTRA CONCEPTS
+• Routing = Process of forwarding packets between networks.
+• Redundancy = Multiple communication paths for reliability.
+• Bottleneck = Heavy traffic causing slow communication.
+• Scalability = Ability to expand a network easily.
+• SPOF (Single Point of Failure) = One failed component can stop the network.
+TASK 2 - SUBNETTING
+• Subnetting = Dividing one large network into smaller networks (Subnets).
+• Improves Security, Performance, Network Management, and Efficiency.
+• Subnet Mask = 32-bit number used to divide networks.
+• IPv4 Subnet Mask Range = 0–255 per octet.
+IMPORTANT ADDRESSES
+• Network Address = Identifies the network (e.g., 192.168.1.0).
+• Host Address = Identifies a device within the network.
+• Default Gateway = Device (usually Router) that forwards data to other networks (commonly .1 or .254).
+EXTRA CONCEPT
+• Devices in the same subnet communicate directly.
+• Devices in different subnets communicate through the Default Gateway.
+TASK 3 - ARP (ADDRESS RESOLUTION PROTOCOL)
+• ARP = Address Resolution Protocol.
+• Maps an IP Address (Logical Address) to a MAC Address (Physical Address).
+• Every device stores known mappings in an ARP Cache.
+ARP PROCESS
+1.	ARP Request → "Who has this IP?"
+2.	ARP Reply → "I have this IP. Here's my MAC."
+KEY TERMS
+• ARP Cache = Stores IP ↔ MAC mappings.
+• IP Address = Logical Identifier.
+• MAC Address = Physical Identifier.
+TASK 4 - DHCP (DYNAMIC HOST CONFIGURATION PROTOCOL)
+• DHCP automatically assigns IP addresses to devices joining a network.
+• Eliminates manual IP configuration.
+DHCP PROCESS (DORA)
+1.	DHCP Discover → Client searches for DHCP Server.
+2.	DHCP Offer → Server offers an IP Address.
+3.	DHCP Request → Client accepts the offered IP.
+4.	DHCP ACK → Server confirms and assigns the IP.
+EXTRA CONCEPT
+• DORA = Discover → Offer → Request → Acknowledge (Easy way to remember DHCP process).
+KEY TERMS
+• DHCP = Dynamic Host Configuration Protocol.
+• Automatic IP Assignment.
+• Prevents IP Address conflicts.
+ROOM SUMMARY
+LAN → Star | Bus | Ring → Switch → Router → Routing → Subnetting → Network Address → Host Address → Default Gateway → ARP (IP ↔ MAC) → DHCP (DORA)
+________________________________________
+TRYHACKME QUESTIONS & ANSWERS
+Q1. What does LAN stand for?
+Ans. Local Area Network
+Q2. What is the verb given to the job that Routers perform?
+Ans. Routing
+Q3. What device is used to centrally connect multiple devices on the local network and transmit data to the correct location?
+Ans. Switch
+Q4. What topology is cost-efficient to set up?
+Ans. Bus Topology
+Q5. What topology is expensive to set up and maintain?
+Ans. Star Topology
+Q6. What was the flag obtained after completing the practical?
+Ans. THM{TOPOLOGY_FLAWS}
+Q7. What is the technical term for dividing a network into smaller pieces?
+Ans. Subnetting
+Q8. How many bits are in a subnet mask?
+Ans. 32
+Q9. What is the range of each octet in a subnet mask?
+Ans. 0-255
+Q10. What address is used to identify the start of a network?
+Ans. Network Address
+Q11. What address is used to identify devices within a network?
+Ans. Host Address
+Q12. What is the name of the device responsible for sending data to another network?
+Ans. Default Gateway
+Q13. What does ARP stand for?
+Ans. Address Resolution Protocol
+Q14. Which ARP packet asks "Who has this IP address?"
+Ans. ARP Request
+Q15. Which address is the physical identifier of a device?
+Ans. MAC Address
+Q16. Which address is the logical identifier of a device?
+Ans. IP Address
+Q17. Which DHCP packet is sent by a device to find a DHCP server?
+Ans. DHCP Discover
+Q18. Which DHCP packet is sent after receiving an IP offer?
+Ans. DHCP Request
+Q19. What is the final DHCP packet sent by the DHCP server?
+Ans. DHCP ACK
+
+
+
+
+
+
+
+
+
+
+
+
+
 
