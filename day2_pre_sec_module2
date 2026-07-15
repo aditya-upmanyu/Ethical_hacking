@@ -263,6 +263,243 @@ Q18. Which DHCP packet is sent after receiving an IP offer?
 Ans. DHCP Request
 Q19. What is the final DHCP packet sent by the DHCP server?
 Ans. DHCP ACK
+MODULE 2 - ROOM 3 - OSI MODEL
+
+TASK 1 - WHAT IS THE OSI MODEL?
+
+• OSI = Open Systems Interconnection.
+• Standard networking model used to explain how devices communicate.
+• Contains 7 layers (Layer 7 → Layer 1).
+• Ensures different devices and operating systems can communicate.
+• Encapsulation = Process of adding information (headers/trailers) to data as it moves through the layers.
+
+**OSI Layers (Top → Bottom)**
+7. Application
+6. Presentation
+5. Session
+4. Transport
+3. Network
+2. Data Link
+
+1. Physical
+
+**Memory Trick:** **All People Seem To Need Data Processing**
+
+---
+
+TASK 2 - LAYER 1: PHYSICAL
+
+• Lowest layer of the OSI model.
+• Transmits raw binary data (0s & 1s).
+• Deals with physical hardware and signals.
+
+Examples:
+• Ethernet Cable
+• Fibre Optic Cable
+• Connectors
+• Hubs
+• Repeaters
+
+---
+
+TASK 3 - LAYER 2: DATA LINK
+
+• Uses MAC Addresses for communication.
+• Responsible for physical addressing.
+• Formats data into Frames.
+• Detects transmission errors.
+
+Hardware:
+• NIC (Network Interface Card)
+• Switch
+
+Key Terms:
+• MAC Address = Physical Address
+• NIC = Network Interface Card
+• Frame = Data Unit of Layer 2
+
+---
+
+TASK 4 - LAYER 3: NETWORK
+
+• Responsible for Routing.
+• Uses IP Addresses.
+• Finds the best path for packets.
+
+Protocols:
+• OSPF (Open Shortest Path First)
+• RIP (Routing Information Protocol)
+
+Hardware:
+• Router
+
+Key Terms:
+• IP Address = Logical Address
+• Packet = Data Unit of Layer 3
+
+---
+
+TASK 5 - LAYER 4: TRANSPORT
+
+• Ensures end-to-end communication.
+• Splits and reassembles data.
+• Controls reliability and speed.
+
+TCP (Transmission Control Protocol)
+• Reliable
+• Error checking
+• Ordered delivery
+• Used for:
+
+* Email
+* File Transfer
+* Web Browsing (HTTP/HTTPS)
+
+UDP (User Datagram Protocol)
+• Faster
+• No error checking
+• No delivery guarantee
+• Used for:
+
+* Video Streaming
+* Gaming
+* Voice Calls
+* DNS
+
+Difference
+TCP → Reliable but Slow
+UDP → Fast but Unreliable
+
+---
+
+TASK 6 - LAYER 5: SESSION
+
+• Establishes, manages and terminates sessions.
+• Creates communication between devices.
+• Uses checkpoints to resume interrupted transfers.
+
+Key Term:
+• Session = Active connection between two devices.
+
+---
+
+TASK 7 - LAYER 6: PRESENTATION
+
+• Translator of the OSI Model.
+• Converts data into a common format.
+• Handles Encryption and Decryption.
+• Handles Compression.
+
+Examples:
+• HTTPS Encryption
+• SSL/TLS
+
+---
+
+TASK 8 - LAYER 7: APPLICATION
+
+• Closest layer to the user.
+• Provides network services to applications.
+• User interacts with this layer.
+
+Examples:
+• Web Browser
+• Email Client
+• FileZilla
+
+Protocols:
+• HTTP / HTTPS
+• DNS
+• FTP
+• SMTP
+
+---
+
+ROOM SUMMARY
+
+Layer 7 → Application → User Services
+Layer 6 → Presentation → Translation & Encryption
+Layer 5 → Session → Connection Management
+Layer 4 → Transport → TCP / UDP
+Layer 3 → Network → Routing & IP Address
+Layer 2 → Data Link → MAC Address & Frames
+Layer 1 → Physical → Cables & Signals
+
+Memory Trick:
+All People Seem To Need Data Processing
+
+---
+
+## TRYHACKME QUESTIONS & ANSWERS
+
+Q1. What does "OSI" stand for?
+Ans. Open Systems Interconnection
+
+Q2. How many layers does the OSI Model have?
+Ans. 7
+
+Q3. What is the process of adding information to data called?
+Ans. Encapsulation
+
+Q4. What is the name of Layer 2?
+Ans. Data Link
+
+Q5. What hardware comes with every network-enabled device?
+Ans. Network Interface Card (NIC)
+
+Q6. What is the name of Layer 3?
+Ans. Network
+
+Q7. Will packets take the most optimal route across a network?
+Ans. Yes (Y)
+
+Q8. What does OSPF stand for?
+Ans. Open Shortest Path First
+
+Q9. What does RIP stand for?
+Ans. Routing Information Protocol
+
+Q10. What type of addresses are used at Layer 3?
+Ans. IP Addresses
+
+Q11. What is the name of Layer 4?
+Ans. Transport
+
+Q12. What does TCP stand for?
+Ans. Transmission Control Protocol
+
+Q13. What does UDP stand for?
+Ans. User Datagram Protocol
+
+Q14. Which protocol guarantees accurate data delivery?
+Ans. TCP
+
+Q15. Which protocol does not guarantee delivery?
+Ans. UDP
+
+Q16. Which protocol is used by Email?
+Ans. TCP
+
+Q17. Which protocol is used for File Downloads?
+Ans. TCP
+
+Q18. Which protocol is commonly used for Video Streaming?
+Ans. UDP
+
+Q19. What is the name of Layer 5?
+Ans. Session
+
+Q20. What is the technical term for an established connection?
+Ans. Session
+
+Q21. What is the name of Layer 6?
+Ans. Presentation
+
+Q22. What is the main purpose of the Presentation Layer?
+Ans. Translation (Data Formatting)
+
+Q23. What was the flag from the OSI Dungeon practical?
+Ans. THM{OSI_DUNGEON_ESCAPED}
 
 
 
