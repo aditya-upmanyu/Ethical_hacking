@@ -883,6 +883,490 @@ http://192.168.1.5:8080
 **Q9. What is the flag received from the Task 5 challenge?**
 **Answer:** Complete the practical challenge on TryHackMe by connecting to **8.8.8.8** on **port 1234** to obtain your unique flag.
 
+# MODULE 2 - ROOM 4 - PORT FORWARDING, FIREWALLS, VPN & NETWORKING DEVICES
+
+---
+
+# TASK 1 - INTRODUCTION TO PORT FORWARDING
+
+## 📌 Port Forwarding
+
+* **Port Forwarding** allows devices or services inside a **private network (LAN)** to be accessed from the **Internet**.
+* Without Port Forwarding, services (like a Web Server) are only accessible within the same local network (**Intranet**).
+* A **Router** receives requests from the Internet and forwards them to the correct internal device.
+* Port Forwarding maps a **Public IP + Port** to a **Private IP + Port**.
+* Configured only on the **Router**.
+
+### Example
+
+Internet → **82.62.51.70:80** → Router → **192.168.1.10:80 (Web Server)**
+
+### Common Uses
+
+* Hosting Websites
+* CCTV Remote Access
+* Game Servers
+* FTP Server
+* SSH Access
+
+### Remember
+
+* **Port Forwarding = Opens the Door**
+* **Firewall = Decides Who Can Enter**
+
+---
+
+# TASK 2 - FIREWALLS 101
+
+## 📌 Firewall
+
+A **Firewall** is a security device/software that controls which network traffic is **allowed** or **blocked**.
+
+Think of it as the **Security Guard** of a network.
+
+### Firewall checks
+
+* Source IP (Where traffic comes from)
+* Destination IP (Where traffic goes)
+* Port Number (80, 443, 22...)
+* Protocol (TCP / UDP)
+
+Firewall performs **Packet Inspection** before allowing traffic.
+
+---
+
+## Firewall Types
+
+### 1. Stateful Firewall
+
+* Checks the **entire connection**
+* Tracks connection state
+* Dynamic decisions
+* More Secure
+* Uses more RAM & CPU
+* Blocks the entire connection if suspicious
+
+### Advantages
+
+* More Secure
+* Tracks TCP Handshake
+* Intelligent Decisions
+
+### Disadvantages
+
+* Slower
+* High Resource Usage
+
+---
+
+### 2. Stateless Firewall
+
+* Checks **individual packets only**
+* Uses fixed/static rules
+* Fast
+* Low Resource Usage
+* Does not remember previous packets
+
+### Advantages
+
+* Fast
+* Less RAM & CPU
+
+### Disadvantages
+
+* Less Secure
+* Depends completely on rules
+
+---
+
+## Firewall Works On
+
+* **OSI Layer 3 (Network)**
+* **OSI Layer 4 (Transport)**
+
+---
+
+# TASK 3 - PRACTICAL FIREWALL
+
+## 📌 Practical
+
+* Configure Firewall Rules.
+* Block malicious traffic.
+* Prevent packets from reaching the Web Server.
+* In this room, Port **80** was blocked.
+
+### Flag
+
+**THM{FIREWALLS_RULE}**
+
+---
+
+# TASK 4 - VPN BASICS
+
+## 📌 VPN (Virtual Private Network)
+
+A VPN creates a secure, encrypted **Tunnel** over the Internet between two devices or networks.
+
+Only devices inside the tunnel can communicate securely.
+
+---
+
+## Benefits of VPN
+
+### Connect Remote Networks
+
+Example
+
+* Office Delhi ↔ Office Mumbai
+
+---
+
+### Privacy
+
+* Encrypts Data
+* Protects against Packet Sniffing
+* Useful on Public Wi-Fi
+
+---
+
+### Anonymity
+
+* Hides browsing activity from ISP
+* Protects user identity
+* Depends on VPN Provider's logging policy
+
+---
+
+## Why TryHackMe Uses VPN
+
+* Secure machine access
+* Protects vulnerable machines
+* Prevents direct Internet exposure
+* ISP doesn't see attacks on public Internet
+
+---
+
+## VPN Technologies
+
+### PPP (Point-to-Point Protocol)
+
+* Authentication
+* Encryption
+* Uses Private Key & Certificate
+* Non-Routable
+
+---
+
+### PPTP (Point-to-Point Tunneling Protocol)
+
+* Creates Tunnel
+* Easy to Configure
+* Weak Encryption
+
+---
+
+### IPSec (Internet Protocol Security)
+
+* Encrypts IP Traffic
+* Strong Encryption
+* Difficult Setup
+
+---
+
+# TASK 5 - LAN NETWORKING DEVICES
+
+---
+
+# Router
+
+## Functions
+
+* Connects Different Networks
+* Performs Routing
+* Uses IP Addresses
+* Chooses Best Path
+* Configures Firewall
+* Configures Port Forwarding
+* DHCP Configuration
+
+### Router Works On
+
+**OSI Layer 3**
+
+---
+
+# Routing
+
+Routing is the process of selecting the **best path** for data.
+
+Router chooses path based on:
+
+* Shortest Path
+* Fastest Connection
+* Most Reliable Path
+
+---
+
+# Switch
+
+A Switch connects multiple devices inside the same LAN.
+
+---
+
+## Layer 2 Switch
+
+* Uses MAC Address
+* Forwards Frames
+* No Routing
+* Works on Layer 2
+
+---
+
+## Layer 3 Switch
+
+* Uses MAC + IP Address
+* Can Route Packets
+* Works on Layer 3
+
+---
+
+# VLAN (Virtual LAN)
+
+A VLAN divides one physical switch into multiple logical networks.
+
+### Benefits
+
+* Better Security
+* Separate Departments
+* Reduced Broadcast Traffic
+* Easier Network Management
+
+Example
+
+Sales Department ❌ Accounting Department
+
+Both use Internet ✔
+
+Cannot communicate directly.
+
+---
+
+# Router vs Switch
+
+| Router            | Switch           |
+| ----------------- | ---------------- |
+| Connects Networks | Connects Devices |
+| Uses IP Address   | Uses MAC Address |
+| Layer 3           | Layer 2 (Mostly) |
+| Performs Routing  | Forwards Frames  |
+
+---
+
+# TASK 6 - PRACTICAL NETWORK SIMULATOR
+
+## Objectives
+
+* Understand Packet Flow
+* Observe Routing
+* Observe Switching
+* Understand Firewall Rules
+* Understand Port Forwarding
+
+---
+
+# ROOM SUMMARY
+
+### Port Forwarding
+
+* Public IP → Private IP
+* Configured on Router
+
+---
+
+### Firewall
+
+* Security Device
+* Layer 3 & Layer 4
+* Stateful & Stateless
+
+---
+
+### VPN
+
+* Secure Encrypted Tunnel
+* Privacy
+* Security
+* Remote Access
+
+---
+
+### Router
+
+* Layer 3
+* Uses IP Address
+* Performs Routing
+
+---
+
+### Layer 2 Switch
+
+* Uses MAC
+* Sends Frames
+
+---
+
+### Layer 3 Switch
+
+* Uses MAC + IP
+* Performs Routing
+
+---
+
+### VLAN
+
+* Virtual Network Separation
+* Better Security
+
+---
+
+# QUICK REVISION
+
+| Topic           | Remember                    |
+| --------------- | --------------------------- |
+| Port Forwarding | Public → Private            |
+| Firewall        | Allow / Block Traffic       |
+| Stateful        | Entire Connection           |
+| Stateless       | Individual Packets          |
+| VPN             | Secure Tunnel               |
+| PPP             | Authentication + Encryption |
+| PPTP            | Tunnel (Easy, Weak)         |
+| IPSec           | Strong Encryption           |
+| Router          | Layer 3, IP                 |
+| Layer 2 Switch  | MAC                         |
+| Layer 3 Switch  | MAC + IP                    |
+| VLAN            | Virtual Network             |
+
+---
+
+# TRYHACKME QUESTIONS & ANSWERS
+
+### Q1. What device is used to configure Port Forwarding?
+
+**Answer:** Router
+
+---
+
+### Q2. What OSI Layers do Firewalls operate on?
+
+**Answer:** Layer 3 & Layer 4
+
+---
+
+### Q3. Which Firewall checks the entire connection?
+
+**Answer:** Stateful Firewall
+
+---
+
+### Q4. Which Firewall checks individual packets?
+
+**Answer:** Stateless Firewall
+
+---
+
+### Q5. What was the Firewall Practical Flag?
+
+**Answer:** THM{FIREWALLS_RULE}
+
+---
+
+### Q6. What does VPN stand for?
+
+**Answer:** Virtual Private Network
+
+---
+
+### Q7. What VPN technology provides Authentication & Encryption?
+
+**Answer:** PPP (Point-to-Point Protocol)
+
+---
+
+### Q8. Which VPN technology creates a Tunnel?
+
+**Answer:** PPTP (Point-to-Point Tunneling Protocol)
+
+---
+
+### Q9. Which VPN technology uses the IP Framework?
+
+**Answer:** IPSec (Internet Protocol Security)
+
+---
+
+### Q10. What is the primary function of a Router?
+
+**Answer:** Routing (Connecting Networks)
+
+---
+
+### Q11. On which OSI Layer does a Router work?
+
+**Answer:** Layer 3 (Network Layer)
+
+---
+
+### Q12. What is the action performed by a Router called?
+
+**Answer:** Routing
+
+---
+
+### Q13. Which OSI Layers can Switches operate on?
+
+**Answer:** Layer 2 and Layer 3
+
+---
+
+### Q14. Which Switch uses MAC Addresses?
+
+**Answer:** Layer 2 Switch
+
+---
+
+### Q15. Which Switch can perform Routing?
+
+**Answer:** Layer 3 Switch
+
+---
+
+### Q16. What does VLAN stand for?
+
+**Answer:** Virtual Local Area Network
+
+---
+
+### Q17. What is the purpose of a VLAN?
+
+**Answer:** To divide one physical network into multiple secure virtual networks.
+
+---
+
+### Q18. What does a Firewall inspect before allowing traffic?
+
+**Answer:** Source IP, Destination IP, Port Number, and Protocol.
+
+---
+
+### Q19. Which protocol does a Firewall commonly inspect at Layer 4?
+
+**Answer:** TCP and UDP
+
+---
+
+### Q20. What is the main benefit of using a VPN on Public Wi-Fi?
+
+**Answer:** Encryption and Privacy.
 
 
 
