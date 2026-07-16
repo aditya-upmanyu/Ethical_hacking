@@ -500,6 +500,388 @@ Ans. Translation (Data Formatting)
 
 Q23. What was the flag from the OSI Dungeon practical?
 Ans. THM{OSI_DUNGEON_ESCAPED}
+# TryHackMe – Network Fundamentals (Hinglish Final Notes)
+
+# Task 1 – Packets and Frames
+
+## What are Packets and Frames?
+
+Jab hum network par koi data (image, video, message ya file) bhejte hain, to woh ek hi baar me nahi bheja jata. Data ko chhote-chhote pieces me divide kiya jata hai taaki network efficiently kaam kare. Inhi pieces ko **Packet** aur **Frame** kehte hain.
+
+---
+
+## Packet
+
+* Packet OSI Model ki **Layer 3 (Network Layer)** ka data hota hai.
+* Isme **IP Addressing Information** hoti hai.
+* Packet ke andar:
+
+  * IP Header
+  * Payload (Actual Data)
+
+**Yaad Rakho:** Jahan bhi **IP Address** ki baat hogi, wahan **Packet** hoga.
+
+---
+
+## Frame
+
+* Frame OSI Model ki **Layer 2 (Data Link Layer)** ka data hota hai.
+* Ye Packet ko encapsulate (wrap) karta hai.
+* Isme **MAC Address** add hota hai.
+
+**Yaad Rakho:** Jahan **MAC Address** ki baat hogi, wahan **Frame** hoga.
+
+---
+
+## Packet vs Frame
+
+| Packet                   | Frame                     |
+| ------------------------ | ------------------------- |
+| Layer 3                  | Layer 2                   |
+| IP Address use karta hai | MAC Address use karta hai |
+| Network Layer            | Data Link Layer           |
+
+---
+
+## Letter Example
+
+Think:
+
+* Letter = Packet
+* Envelope = Frame
+
+Jaise envelope letter ko safely destination tak pahunchata hai, waise hi Frame Packet ko network me safely travel karwata hai.
+
+Destination par Frame remove hota hai aur Packet receive hota hai.
+
+---
+
+## Encapsulation
+
+Packet ke bahar Frame add karna **Encapsulation** kehlata hai.
+
+Flow:
+
+Data → Packet → Frame → Network
+
+Receiver side par Frame remove hota hai.
+
+Is process ko **Decapsulation** kehte hain.
+
+---
+
+## Packet Kyun Use Hote Hain?
+
+Badi file ko ek saath bhejne ki jagah usse multiple packets me divide kiya jata hai.
+
+Benefits:
+
+* Fast Transfer
+* Less Congestion
+* Easy Error Recovery
+* Efficient Communication
+
+---
+
+## Image Example
+
+Jab website se image load hoti hai to image multiple packets me divide hoti hai.
+
+Destination par sab packets milkar original image bana dete hain.
+
+---
+
+## Important Packet Headers
+
+### Time To Live (TTL)
+
+Packet kitni der network me rahega. TTL khatam hone par packet delete ho jata hai.
+
+### Checksum
+
+Data corrupt hua ya nahi verify karta hai.
+
+### Source Address
+
+Sender ka IP Address.
+
+### Destination Address
+
+Receiver ka IP Address.
+
+---
+
+# Task 2 – TCP/IP (Three-Way Handshake)
+
+## TCP
+
+TCP ka Full Form:
+
+**Transmission Control Protocol**
+
+TCP ek **Reliable** aur **Connection-Oriented Protocol** hai.
+
+Reliable matlab:
+
+* Data loss nahi hone deta.
+* Data sahi order me pahunchata hai.
+* Lost packet ko dubara bhejta hai.
+
+---
+
+## TCP/IP Model
+
+TCP/IP Model me 4 Layers hoti hain:
+
+1. Application
+2. Transport
+3. Internet
+4. Network Interface
+
+Ye OSI Model ka simplified version hai.
+
+---
+
+## Encapsulation
+
+Har layer packet me apni information add karti hai.
+
+Is process ko Encapsulation kehte hain.
+
+Receiver side par reverse process Decapsulation hota hai.
+
+---
+
+## TCP Advantages
+
+* Reliable Communication
+* Ordered Delivery
+* Data Integrity
+* Flow Control
+* Synchronization
+
+---
+
+## TCP Disadvantages
+
+* Slow
+* Connection Required
+* Retransmission
+* More Processing
+
+---
+
+## Important TCP Headers
+
+* Source Port
+* Destination Port
+* Source IP
+* Destination IP
+* Sequence Number
+* Acknowledgement Number
+* Checksum
+* Data
+* Flags
+
+---
+
+## Three-Way Handshake
+
+### Step 1 – SYN
+
+Client bolta hai:
+"Connection banana hai."
+
+### Step 2 – SYN/ACK
+
+Server bolta hai:
+"Request mil gayi aur main bhi ready hoon."
+
+### Step 3 – ACK
+
+Client bolta hai:
+"Connection Confirm."
+
+Ab Data Transfer Start hota hai.
+
+---
+
+## TCP Connection Close
+
+FIN → ACK → FIN → ACK
+
+---
+
+## RST
+
+Agar server crash ho jaye ya koi serious problem aa jaye to RST packet connection ko immediately close kar deta hai.
+
+---
+
+# Task 4 – UDP/IP
+
+## UDP
+
+Full Form:
+
+**User Datagram Protocol**
+
+UDP ek **Stateless (Connectionless)** Protocol hai.
+
+---
+
+## UDP Features
+
+* No Handshake
+* No ACK
+* No Retransmission
+* Very Fast
+* Unreliable
+
+---
+
+## UDP Advantages
+
+* TCP se Faster
+* Connection Maintain nahi karta
+* Low Latency
+* Live Applications ke liye best
+
+---
+
+## UDP Disadvantages
+
+* Packet Lost ho sakta hai
+* Data Integrity nahi hoti
+* ACK nahi hota
+* Packet dubara send nahi hota
+
+---
+
+## UDP Headers
+
+* Time To Live (TTL)
+* Source Address
+* Destination Address
+* Source Port
+* Destination Port
+* Data
+
+---
+
+## UDP Kahan Use Hota Hai?
+
+* Video Calls
+* Live Streaming
+* Online Gaming
+* Voice Chat
+
+---
+
+# Task 5 – Ports 101
+
+## Port Kya Hota Hai?
+
+Port ek logical communication endpoint hai jiske through network traffic send aur receive hota hai.
+
+Har application apna alag port use karti hai.
+
+---
+
+## Harbour Example
+
+Computer = Harbour
+
+Data = Ship
+
+Port = Dock
+
+Jaise har ship har dock par nahi lag sakti, waise hi har application sirf apne compatible port par hi communicate karti hai.
+
+---
+
+## Port Range
+
+0 – 65535
+
+Well-Known Ports:
+
+0 – 1024
+
+---
+
+## Important Ports
+
+| Protocol | Port | Use                    |
+| -------- | ---: | ---------------------- |
+| FTP      |   21 | File Transfer          |
+| SSH      |   22 | Secure Remote Login    |
+| HTTP     |   80 | Website (Unencrypted)  |
+| HTTPS    |  443 | Secure Website         |
+| SMB      |  445 | File & Printer Sharing |
+| RDP      | 3389 | Remote Desktop         |
+
+---
+
+## Standard Ports
+
+Normally HTTP Port 80 par chalta hai.
+
+Lekin agar website Port 8080 par chal rahi ho to URL me port likhna padega.
+
+Example:
+
+http://192.168.1.5:8080
+
+---
+
+# Quick Revision
+
+* Packet = Layer 3 = IP Address
+* Frame = Layer 2 = MAC Address
+* Encapsulation = Packet ko Frame me Wrap karna
+* TCP = Reliable + Connection-Oriented
+* UDP = Fast + Stateless
+* Three-Way Handshake = SYN → SYN/ACK → ACK
+* TCP Close = FIN → ACK → FIN → ACK
+* Checksum = Data Integrity
+* Port Range = 0–65535
+* Well-Known Ports = 0–1024
+* HTTP = 80
+* HTTPS = 443
+* FTP = 21
+* SSH = 22
+* SMB = 445
+* RDP = 3389
+
+# Questions & Answers
+
+**Q1. What is the name for a piece of data when it does have IP addressing information?**
+**Answer:** Packet
+
+**Q2. What is the name for a piece of data when it does not have IP addressing information?**
+**Answer:** Frame
+
+**Q3. What is the header in a TCP packet that ensures the integrity of data?**
+**Answer:** Checksum
+
+**Q4. Provide the order of a normal Three-Way Handshake.**
+**Answer:** SYN → SYN/ACK → ACK
+
+**Q5. What does UDP stand for?**
+**Answer:** User Datagram Protocol
+
+**Q6. What type of connection is UDP?**
+**Answer:** Stateless
+
+**Q7. What protocol would you use to transfer a file?**
+**Answer:** TCP
+
+**Q8. What protocol would you use to have a video call?**
+**Answer:** UDP
+
+**Q9. What is the flag received from the Task 5 challenge?**
+**Answer:** Complete the practical challenge on TryHackMe by connecting to **8.8.8.8** on **port 1234** to obtain your unique flag.
 
 
 
