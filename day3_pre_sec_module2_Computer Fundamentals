@@ -1,220 +1,129 @@
-# MODULE 1 – ROOM 4 – INSIDE A COMPUTER SYSTEM (SUMMARY NOTES)
+MODULE 1 – ROOM 4 – INSIDE A COMPUTER SYSTEM
+
+TASK 1 – INTRODUCTION
+
+Important Points
+
+• Computer ko secure karne se pehle uske hardware aur software ko samajhna zaroori hai.
+• Har hardware component ka apna specific function hota hai.
+• Cyber Security ki foundation Computer Fundamentals hai.
+
+Remember:
+"You can't protect what you don't understand."
 
 ---
 
-# TASK 1 – INTRODUCTION
+TASK 2 – INSIDE A COMPUTER SYSTEM
 
-## 📌 Key Points
+Motherboard
+• Sabhi hardware components ko connect karti hai.
+• Data communication ka main pathway.
 
-* Computer ko secure karne se pehle uske hardware aur software ko samajhna zaroori hai.
-* Har component ka apna specific role hota hai.
-* Cyber Security ka foundation Computer Fundamentals hai.
+Human Analogy: Skeleton
 
-**Remember:**
+CPU (Central Processing Unit)
+• Computer ka Brain.
+• Instructions execute karta hai.
+• Processing aur calculations karta hai.
 
-> "You can't protect what you don't understand."
+Human Analogy: Brain
 
----
+RAM (Random Access Memory)
+• Temporary (Volatile) memory.
+• Running programs ka data store karti hai.
+• Power off hone par data delete ho jata hai.
 
-# TASK 2 – INSIDE A COMPUTER SYSTEM
+Human Analogy: Short-Term Memory
 
-## 🖥️ Important Components
+Storage (SSD / HDD)
+• Permanent (Non-Volatile) storage.
+• Operating System, files aur software permanently store hote hain.
 
-### 1. Motherboard
+Human Analogy: Long-Term Memory
 
-* Sabhi components ko connect karti hai.
-* Data transfer ka main pathway.
+PSU (Power Supply Unit)
+• Computer ko power supply deta hai.
+• AC ko DC me convert karta hai.
 
-**Human Analogy:** Skeleton
+Human Analogy: Heart
 
----
+GPU (Graphics Processing Unit)
+• Graphics aur videos process karta hai.
+• Gaming, Editing aur AI workloads me use hota hai.
 
-### 2. CPU (Central Processing Unit)
+Human Analogy: Eyes
 
-* Computer ka **Brain**.
-* Instructions execute karta hai.
-* Calculations aur decision making karta hai.
+Cooling System
+• CPU aur GPU ko overheat hone se bachata hai.
 
-**Human Analogy:** Brain
+Human Analogy: Body Cooling System
 
----
-
-### 3. RAM (Random Access Memory)
-
-* Temporary (Volatile) memory.
-* Running programs ka data store karti hai.
-* Power off hone par data delete ho jata hai.
-
-**Human Analogy:** Short-term Memory
-
----
-
-### 4. Storage (SSD/HDD)
-
-* Permanent (Non-Volatile) memory.
-* Files, Windows, Applications permanently store hoti hain.
-
-**Human Analogy:** Long-term Memory
-
----
-
-### 5. Power Supply Unit (PSU)
-
-* AC power ko DC power me convert karta hai.
-* Sabhi components ko electricity provide karta hai.
-
-**Human Analogy:** Heart
-
----
-
-### 6. GPU (Graphics Processing Unit)
-
-* Graphics aur videos process karta hai.
-* Gaming, Editing aur AI workloads me important.
-
-**Human Analogy:** Eyes
-
----
-
-### 7. Cooling System
-
-* CPU aur GPU ko overheat hone se bachata hai.
-
-**Human Analogy:** Sweat / Body Cooling System
-
----
-
-### 8. Input Devices
-
+Input Devices
 Examples:
+• Keyboard
+• Mouse
+• Microphone
 
-* Keyboard
-* Mouse
-* Microphone
+Function:
+User se input lena.
 
-**Function:** User se input lena.
-
----
-
-### 9. Output Devices
-
+Output Devices
 Examples:
+• Monitor
+• Printer
+• Speaker
 
-* Monitor
-* Printer
-* Speakers
+Function:
+Processed result user ko dikhana.
 
-**Function:** Processed result dikhana.
+Quick Memory Trick
 
----
-
-## 📌 Memory Trick
-
-**Input → CPU + RAM → Storage → Output**
+Input → CPU + RAM → Storage → Output
 
 ---
 
-# TASK 3 – BOOT PROCESS
+TASK 3 – BOOT PROCESS
 
-## Boot Sequence (Exam Important)
+Boot Sequence
 
-### 1. Power Button
+1. Power Button
+2. PSU
+3. UEFI / BIOS
+4. POST (Power-On Self Test)
+5. Boot Device Selection
+6. Bootloader
+7. Operating System Loads
 
-* Computer ON hota hai.
-* PSU power supply start karta hai.
-
-### 2. UEFI / BIOS
-
-* Hardware initialize karta hai.
-* Boot process control karta hai.
-
-### 3. POST (Power-On Self Test)
-
-* Hardware check karta hai.
-* RAM, CPU, Keyboard etc. detect karta hai.
-
-### 4. Boot Device Selection
-
-* UEFI bootable device search karta hai.
-* (SSD/HDD/USB)
-
-### 5. Bootloader
-
-* Operating System ko RAM me load karta hai.
-* Control OS ko de deta hai.
+Remember:
+Power → UEFI → POST → Boot Device → Bootloader → Operating System
 
 ---
 
-## 📌 Boot Flow
+TASK 4 – THM QUESTIONS & ANSWERS
 
-**Power Button**
-↓
-**PSU**
-↓
-**UEFI / BIOS**
-↓
-**POST**
-↓
-**Boot Device**
-↓
-**Bootloader**
-↓
-**Operating System Loads**
+Q1. Let's get started!
+Answer:
+No Answer Needed
+
+Q2. Give the flag received after completing the Static Site.
+Answer:
+THM{YOUR_FLAG_HERE}
+
+Q3. I am ready to discover the different types of computer systems and their function!
+Answer:
+No Answer Needed
 
 ---
 
-# TASK 4 – CONCLUSION
+Quick Revision
 
-## Important Takeaways
-
-* CPU = Brain
-* RAM = Temporary Memory
-* SSD/HDD = Permanent Storage
-* Motherboard = Connects Everything
-* PSU = Supplies Power
-* GPU = Graphics Processing
-* Boot Process = Power → UEFI → POST → Boot Device → Bootloader → OS
-
----
-
-# ⭐ Exam / Interview Questions
-
-### Q1. CPU ka function?
-
-**Ans:** Instructions execute karta hai aur processing karta hai.
-
-### Q2. RAM volatile kyun kehlati hai?
-
-**Ans:** Power off hote hi data erase ho jata hai.
-
-### Q3. SSD aur HDD ka purpose?
-
-**Ans:** Permanent data storage.
-
-### Q4. POST ka full form?
-
-**Ans:** Power-On Self Test.
-
-### Q5. BIOS/UEFI ka kaam?
-
-**Ans:** Hardware initialize karna aur Operating System boot karna.
-
-### Q6. Motherboard ka role?
-
-**Ans:** Sabhi hardware components ko connect aur communicate karwana.
-
----
-
-# 🔥 Quick Revision (1 Minute)
-
-* **CPU** → Brain
-* **Motherboard** → Connects Components
-* **RAM** → Temporary Memory
-* **SSD/HDD** → Permanent Storage
-* **PSU** → Power Supply
-* **GPU** → Graphics
-* **Cooling System** → Heat Control
-* **Input** → Keyboard, Mouse
-* **Output** → Monitor, Speaker
-* **Boot Process** → Power → UEFI → POST → Boot Device → Bootloader → OS
-
+• CPU = Brain
+• Motherboard = Connects Everything
+• RAM = Temporary Memory
+• SSD/HDD = Permanent Storage
+• PSU = Power Supply
+• GPU = Graphics
+• Cooling System = Prevents Overheating
+• POST = Hardware Check
+• UEFI = Starts Boot Process
+• Bootloader = Loads Operating System
