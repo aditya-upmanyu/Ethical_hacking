@@ -127,3 +127,205 @@ Quick Revision
 • POST = Hardware Check
 • UEFI = Starts Boot Process
 • Bootloader = Loads Operating System
+MODULE 1 – ROOM 4 – INSIDE A COMPUTER SYSTEM
+
+============================================================
+
+TASK 1 – INTRODUCTION
+
+Important Points
+
+• Computer ko secure karne se pehle uske hardware aur software ko samajhna zaroori hai.
+• Har hardware component ka apna specific function hota hai.
+• Cyber Security ki foundation Computer Fundamentals hai.
+
+Remember:
+"You can't protect what you don't understand."
+
+THM Question
+
+Q1. Let's get started!
+
+Answer:
+No Answer Needed
+
+============================================================
+
+TASK 2 – INSIDE A COMPUTER SYSTEM
+
+Motherboard
+• Sabhi hardware components ko connect karti hai.
+• Data communication ka main pathway.
+
+Human Analogy: Skeleton
+
+CPU (Central Processing Unit)
+• Computer ka Brain.
+• Instructions execute karta hai.
+• Processing aur calculations karta hai.
+
+Human Analogy: Brain
+
+RAM (Random Access Memory)
+• Temporary (Volatile) memory.
+• Running programs ka data store karti hai.
+• Power off hote hi data erase ho jata hai.
+
+Human Analogy: Short-Term Memory
+
+Storage (SSD / HDD)
+• Permanent (Non-Volatile) storage.
+• Windows, files aur applications permanently store hote hain.
+
+Human Analogy: Long-Term Memory
+
+PSU (Power Supply Unit)
+• Computer ko power provide karta hai.
+• AC ko DC me convert karta hai.
+
+Human Analogy: Heart
+
+GPU (Graphics Processing Unit)
+• Graphics aur videos process karta hai.
+• Gaming aur video editing me important hai.
+
+Human Analogy: Eyes
+
+Cooling System
+• CPU aur GPU ko overheat hone se bachata hai.
+
+Human Analogy: Body Cooling System
+
+Input Devices
+• Keyboard
+• Mouse
+• Microphone
+
+Function:
+User se input lena.
+
+Output Devices
+• Monitor
+• Speaker
+• Printer
+
+Function:
+Processed output user ko dikhana.
+
+Memory Trick
+
+Input → CPU + RAM → Storage → Output
+
+THM Question
+
+Q1. Give in the flag you received after completing the exercise on the Static Site.
+
+Answer:
+THM{YOUR_FLAG_HERE}
+
+(Note: Apna khud ka TryHackMe flag yahan paste karna.)
+
+============================================================
+
+TASK 3 – WHAT HAPPENS WHEN YOU PRESS THE START BUTTON?
+
+Boot Sequence
+
+1. Power Button
+2. PSU supplies power
+3. UEFI / BIOS starts
+4. POST (Power-On Self Test)
+5. Boot Device Selection
+6. Bootloader starts
+7. Operating System loads into RAM
+
+Remember
+
+Power
+↓
+UEFI / BIOS
+↓
+POST
+↓
+Boot Device
+↓
+Bootloader
+↓
+Operating System
+
+Important Points
+
+• UEFI BIOS ka modern version hai.
+• POST hardware ko check karta hai.
+• Bootloader Operating System ko RAM me load karta hai.
+• OS load hone ke baad computer use ke liye ready ho jata hai.
+
+THM Question
+
+Q1. Complete the Static Site exercise.
+
+Answer:
+No written answer required.
+
+============================================================
+
+TASK 4 – CONCLUSION
+
+Important Points
+
+• Computer ke sabhi components milkar system ko chalate hain.
+• Boot Process Cyber Security me important concept hai.
+• Malware aur Bootkits boot process ko target kar sakte hain.
+
+THM Question
+
+Q1. I am ready to discover the different types of computer systems and their function!
+
+Answer:
+No Answer Needed
+
+============================================================
+
+QUICK REVISION
+
+CPU = Brain
+
+Motherboard = Connects Components
+
+RAM = Temporary Memory
+
+SSD/HDD = Permanent Storage
+
+PSU = Power Supply
+
+GPU = Graphics Processing
+
+Cooling System = Prevents Overheating
+
+POST = Hardware Check
+
+UEFI = Starts Boot Process
+
+Bootloader = Loads Operating System
+
+============================================================
+
+IMPORTANT INTERVIEW / EXAM QUESTIONS
+
+Q. CPU ka function kya hai?
+Ans. Instructions execute karta hai aur processing karta hai.
+
+Q. RAM volatile memory kyun kehlati hai?
+Ans. Power off hone par data erase ho jata hai.
+
+Q. POST ka full form?
+Ans. Power-On Self Test.
+
+Q. UEFI ka purpose?
+Ans. Hardware initialize karna aur Operating System boot karna.
+
+Q. Bootloader kya karta hai?
+Ans. Operating System ko RAM me load karta hai aur control OS ko de deta hai.
+
+Q. Motherboard ka main role?
+Ans. Sabhi hardware components ko connect aur communicate karwana.
