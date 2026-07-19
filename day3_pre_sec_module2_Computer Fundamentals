@@ -329,3 +329,255 @@ Ans. Operating System ko RAM me load karta hai aur control OS ko de deta hai.
 
 Q. Motherboard ka main role?
 Ans. Sabhi hardware components ko connect aur communicate karwana.
+# TryHackMe – Computer Types (Clean Notes for MS Word)
+
+## Computer Types
+
+### Introduction
+
+* Computers are not just laptops and smartphones.
+* They are also found inside everyday devices like:
+
+  * Smart refrigerators
+  * Doorbells
+  * Coffee machines
+  * Automatic doors
+* Different computers are designed for different purposes.
+
+### Learning Objectives
+
+After completing this room, you should be able to:
+
+* Identify different types of computers.
+* Understand the purpose of each computer type.
+* Distinguish between laptops, desktops, workstations, servers, smartphones, tablets, IoT devices, and embedded computers.
+
+---
+
+# Task 2 – The Computers You Sit in Front Of
+
+## Main Types of Computers
+
+| Computer Type | Screen & Keyboard | Main Purpose                                    |
+| ------------- | ----------------- | ----------------------------------------------- |
+| Laptop        | Yes               | Portable everyday computing                     |
+| Desktop       | Yes               | Sustained performance at a fixed location       |
+| Workstation   | Yes               | Precision and reliability for professional work |
+| Server        | No                | Provides services to many users over a network  |
+
+### Laptop
+
+* Portable and battery-powered.
+* Best for:
+
+  * Browsing
+  * Emails
+  * Documents
+* Limited by:
+
+  * Smaller cooling system
+  * Battery life
+* Can slow down during heavy workloads.
+
+### Desktop
+
+* Stays in one location.
+* Uses wall power.
+* Better cooling than laptops.
+* Suitable for long, demanding tasks.
+
+### Workstation
+
+* Looks similar to a desktop.
+* Built with specialized hardware.
+* Designed for:
+
+  * 3D modeling
+  * Simulations
+  * Engineering
+  * Scientific computing
+* Prioritizes:
+
+  * Accuracy
+  * Reliability
+  * Long-term stability
+
+### Server
+
+* Usually has no dedicated screen or keyboard.
+* Runs continuously (24/7).
+* Serves multiple users over a network.
+* Hosts websites, applications, files, and databases.
+
+### Task 2 Answers
+
+Q1. Which computer type usually runs without a dedicated screen and keyboard?
+Answer: Server
+
+Q2. What kind of computer with specialized components is used for precision work?
+Answer: Workstation
+
+---
+
+# Task 3 – Hidden Computers
+
+## More Types of Computers
+
+| Type              | Description                                                       | Examples                                          |
+| ----------------- | ----------------------------------------------------------------- | ------------------------------------------------- |
+| Smartphone        | Pocket-sized computer optimized for battery life and connectivity | iPhone, Android                                   |
+| Tablet            | Touch-based computer with a larger display                        | iPad, Drawing Tablet                              |
+| IoT Device        | Network-connected device with a specific purpose                  | Smart thermostat, Smart doorbell, Fitness tracker |
+| Embedded Computer | Computer built inside another device                              | Coffee machine, Automatic door, Lamp controller   |
+
+## Smartphone
+
+* Most common pocket-sized computer.
+* Optimized for:
+
+  * Battery life
+  * Internet connectivity
+  * Mobility
+
+## Tablet
+
+* Larger touchscreen device.
+* Mainly controlled by touch.
+* Useful for:
+
+  * Reading
+  * Drawing
+  * Entertainment
+  * Productivity
+
+## IoT (Internet of Things) Device
+
+* Connects to a network.
+* Sends or receives data.
+* Performs a specific task.
+* Examples:
+
+  * Smart thermostat
+  * Smart doorbell
+  * Fitness tracker
+
+## Embedded Computer
+
+* Built into another machine.
+* Usually hidden from the user.
+* Often works for years without direct interaction.
+* Examples:
+
+  * Coffee maker controller
+  * Automatic door sensor
+  * Lamp dimmer chip
+
+### IoT vs Embedded Computers
+
+IoT Device
+
+* Connected to a network.
+* Can communicate with other devices.
+* Receives commands and reports data.
+
+Embedded Computer
+
+* Usually not connected to a network.
+* Performs one dedicated function.
+* Operates inside another device.
+
+### Task 3 Answers
+
+Q1. What is the currently most popular pocket-sized computer?
+Answer: Smartphone
+
+Q2. What kind of computer would you expect to find in a coffee machine?
+Answer: Embedded Computer
+
+---
+
+# Task 4 – Why Computers Come in Different Flavors
+
+## Why Not Build One Computer for Everything?
+
+Because every design involves trade-offs.
+
+### Mobility vs Performance
+
+* Portable computers sacrifice sustained performance.
+* Smaller devices generate more heat and have limited cooling.
+
+### Reliability vs Cost
+
+* Servers and critical systems use:
+
+  * Redundant power supplies
+  * Multiple storage drives
+* This improves reliability but increases cost.
+
+### Purpose Matters
+
+* Smartphones are designed for personal use.
+* Servers provide services to many users.
+* IoT devices quietly perform one specific task.
+
+### Key Idea
+
+There is no "best" computer.
+There is only the right computer for the job.
+
+### Task 4 Flag
+
+THM{8_computer_types}
+
+---
+
+# Task 5 – Summary
+
+## Eight Computer Types Covered
+
+1. Laptop
+2. Desktop
+3. Workstation
+4. Server
+5. Smartphone
+6. Tablet
+7. IoT Device
+8. Embedded Computer
+
+## Key Takeaways
+
+* Computers exist everywhere, not just on desks.
+* Different computers are built for different purposes.
+* Laptops prioritize portability.
+* Desktops prioritize sustained performance.
+* Workstations prioritize precision and reliability.
+* Servers provide services over a network.
+* Smartphones are portable, battery-efficient computers.
+* Tablets provide larger touch-based computing.
+* IoT devices connect to networks and perform dedicated tasks.
+* Embedded computers are hidden inside machines and perform specific functions.
+
+---
+
+# Important Exam Points
+
+* Laptop = Portable computing
+* Desktop = Fixed-location performance
+* Workstation = Professional precision tasks
+* Server = Provides network services
+* Smartphone = Most popular pocket computer
+* Tablet = Touchscreen computer
+* IoT Device = Network-connected single-purpose device
+* Embedded Computer = Hidden computer inside another machine
+* IoT = Connected to a network
+* Embedded = Usually not network-connected
+* There is no best computer—only the right tool for the job.
+
+# Answers Summary
+
+* Server
+* Workstation
+* Smartphone
+* Embedded Computer
+* Flag: THM{8_computer_types}
