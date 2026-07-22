@@ -637,3 +637,4 @@ Content-Length: 42
 Use code with caution.Line 1: Contains the [HTTP Version] [Status Code] [Status Message].Lines 2-3: Response Headers stating server information and formatting parameters.Line 5: The Response Body delivering the actual HTML code rendered by the client browser.🍪 State Management: Cookies & SessionsHTTP is fundamentally stateless—the server treats every single request as a brand-new interaction from a stranger. To fix this, websites use cookies:You submit credentials via a POST request.If correct, the server responds with a Set-Cookie: session_id=XYZ123 header.Your browser saves this cookie.For every future GET or POST request, your browser automatically appends the Cookie: session_id=XYZ123 header so the server knows who you are without re-authenticating.
 
 hello keep working hard👍
+yes keep it up 
