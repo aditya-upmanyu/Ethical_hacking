@@ -1,0 +1,354 @@
+MODULE 2 - CLIENT-SERVER BASICS
+TASK 1 - INTRODUCTION
+Pehle computers mostly independently kaam karte the. Baad mein computers ko network ke through connect kiya gaya taaki wo information aur resources share kar saken.
+Isi concept se modern Internet develop hua.
+Important Learning Concepts:
+•	Client
+•	Server
+•	Request & Response
+•	Protocol
+•	Port
+•	DNS
+•	IP Address
+•	Network
+________________________________________
+TASK 2 - CLIENT-SERVER MODEL
+1. Client
+Client wo computer ya application hota hai jo server se service ya resource request karta hai.
+Important: Client hamesha request initiate karta hai.
+Examples:
+•	Web Browser
+•	Mobile App
+•	Email Client
+Example:
+Tum Chrome mein Google open karte ho → Chrome Client hai.
+________________________________________
+2. Server
+Server wo computer/system hota hai jo client ki request ko receive karke requested service ya resource provide karta hai.
+Example:
+Tum website open karte ho → Website ko host karne wala system Server hai.
+Simple Flow:
+Client → Request → Server
+Client ← Response ← Server
+Example:
+Browser → Website Request → Web Server
+Browser ← Webpage Response ← Web Server
+________________________________________
+3. Request & Response
+Request
+Client server ko koi resource ya service maangne ke liye Request bhejta hai.
+Response
+Server request ko process karke client ko Response bhejta hai.
+Agar request incorrect ho ya resource available na ho, to server Error Response de sakta hai.
+Example:
+Browser → "Mujhe Google ka webpage chahiye."
+Server → "Ye lo webpage."
+Important:
+Client = Request karta hai
+Server = Response deta hai
+________________________________________
+4. Protocol
+Protocol rules ka ek set hota hai jo define karta hai ki client aur server aapas mein kaise communicate karenge.
+Protocol define karta hai:
+•	Kaunse commands use honge.
+•	Request ka format kya hoga.
+•	Syntax kya hoga.
+•	Server ko kis request par kya response dena hai.
+•	Galat request par kya response dena hai.
+Example: HTTP ek protocol hai jo web browsers aur web servers ke communication mein use hota hai.
+Simple Definition:
+Protocol = Communication ke Rules
+________________________________________
+5. Port
+Port server par running kisi specific service ko identify karta hai.
+Ek server par multiple services chal sakti hain aur har service alag port par listen kar sakti hai.
+Example:
+Server:
+•	Web Service → Port 80
+•	HTTPS Service → Port 443
+•	SSH Service → Port 22
+Agar client ko kisi specific service se connect karna hai, to usse correct port par connect karna hota hai.
+Simple Example:
+Server = Building
+Port = Different Doors
+Service = Door ke andar available service
+Port = Specific Service ka Entry Point
+________________________________________
+6. DNS
+DNS = Domain Name System
+DNS website ke domain name ko IP address mein resolve karta hai.
+Hum website ka naam easily remember kar sakte hain, jaise:
+example.com
+Lekin computers network par server ko locate karne ke liye IP address ka use karte hain.
+DNS domain name ko corresponding IP address se resolve karta hai.
+Example:
+google.com
+↓ DNS
+IP Address
+Simple Example:
+DNS = Internet ka GPS/Phonebook
+Jaise GPS naam ya location se destination find karne mein help karta hai, waise DNS domain name se server ka IP address find karta hai.
+________________________________________
+7. IP Address
+IP Address network par kisi device/server ka address hota hai.
+Ye devices ko identify aur locate karne mein help karta hai.
+Example:
+192.168.1.10
+Simple Definition:
+IP Address = Network par device ka address
+________________________________________
+8. Network
+Network multiple computers/devices ka connection hai jo data aur resources share karne ke liye connected hote hain.
+Example:
+•	Home Wi-Fi Network
+•	Office Network
+•	Internet
+________________________________________
+COMPLETE CLIENT-SERVER FLOW
+Jab tum browser mein website open karte ho:
+1. Client (Browser)
+↓
+2. DNS domain name ko IP Address mein resolve karta hai
+↓
+3. Client correct Port par Server se connect karta hai
+↓
+4. Client Request bhejta hai
+↓
+5. Server Request process karta hai
+↓
+6. Server Response bhejta hai
+↓
+7. Browser Response ko display karta hai
+Example:
+You → Chrome → DNS → IP Address → Server → Request → Response → Webpage
+________________________________________
+QUICK REVISION
+Client → Request karta hai
+Server → Service/Response provide karta hai
+Request → Client se Server ko
+Response → Server se Client ko
+Protocol → Communication Rules
+Port → Specific Service identify karta hai
+DNS → Domain Name → IP Address
+IP Address → Device/Server ka Network Address
+Network → Connected Devices ka Group
+________________________________________
+TRYHACKME QUESTIONS & ANSWERS
+Q1. What is a Client?
+Ans: A computer or application that requests a service or resource from a server.
+Q2. What is a Server?
+Ans: A computer/system that provides services or resources to clients.
+Q3. Who initiates the request in the Client-Server model?
+Ans: Client
+Q4. What is a Request?
+Ans: A message sent by the client to the server asking for a resource or service.
+Q5. What is a Response?
+Ans: A message sent by the server back to the client after processing a request.
+Q6. What is a Protocol?
+Ans: A set of rules that defines how clients and servers communicate.
+Q7. What do we use to identify a specific service on a server?
+Ans: Port
+Q8. What do we call the address of a server?
+Ans: IP Address
+Q9. What does DNS stand for?
+Ans: Domain Name System
+Q10. What is the purpose of DNS?
+Ans: DNS resolves domain names into IP addresses.
+Q11. What is an IP Address?
+Ans: An address used to identify and locate a device/server on a network.
+Q12. Why are Ports important?
+Ans: Ports identify specific services running on a server and allow clients to connect to the correct service.
+________________________________________
+🔥 MEMORY TRICK
+Client = Customer
+Server = Service Provider
+Request = Customer ki Demand
+Response = Service Provider ka Answer
+Protocol = Communication Rules
+Port = Service ka Door
+DNS = Name ko Address mein Convert karta hai
+IP Address = Server ka Address
+One-Line Concept:
+Client request karta hai → DNS server ka IP find karta hai → Port specific service identify karta hai → Protocol communication ke rules define karta hai → Server response deta hai.
+Bilkul bhai, Task 3 ko bhi same style mein short aur simple notes bana deta hoon. Isme HTTP/HTTPS, GET request, request-response aur important fields main focus hain.
+TASK 3 - WEB COMMUNICATION IN PRACTICE
+1. HTTP / HTTPS
+HTTP = Hypertext Transfer Protocol
+HTTPS = Hypertext Transfer Protocol Secure
+HTTP/HTTPS ek stateless client-server protocol hai jo World Wide Web par communication ke liye use hota hai.
+Stateless ka matlab: Server normally har request ko independently process karta hai aur previous requests ki information automatically remember nahi karta.
+Example:
+Browser (Client) → HTTP Request → Web Server
+Web Server → HTTP Response → Browser
+________________________________________
+2. Stateful Mechanism
+HTTP stateless hai, lekin websites application-level mechanisms se user ka state maintain kar sakti hain.
+Example: Login karne ke baad website ek session ID, cookie ya token use karti hai.
+Iski wajah se tumhe har request par dobara login nahi karna padta.
+Simple:
+HTTP = Stateless
+Cookies / Tokens / Sessions = User State Maintain karne mein help
+________________________________________
+3. HTTP Methods
+HTTP mein commands ko Methods kaha jata hai.
+9 Core HTTP Methods:
+•	GET
+•	POST
+•	PUT
+•	DELETE
+•	PATCH
+•	HEAD
+•	OPTIONS
+•	CONNECT
+•	TRACE
+Important Methods:
+GET → Server se resource/data retrieve karna
+POST → Data server ko send karna
+PUT → Resource ko update/replace karna
+DELETE → Resource delete karna
+PATCH → Resource ka partial update
+Important:
+Is task mein mainly GET method par focus kiya gaya hai.
+________________________________________
+4. GET Method
+GET method ka use web server se resource retrieve karne ke liye hota hai.
+Example:
+GET https://tryhackme.com/index.php
+Iska matlab server se index.php resource request karna.
+Jab tum browser mein website ka URL enter karte ho, browser background mein HTTP GET request create karke server ko bhej sakta hai.
+Flow:
+Browser (Client)
+↓
+GET Request
+↓
+Web Server
+↓
+Response + Status Code + Requested Data
+↓
+Browser
+________________________________________
+5. HTTP Request
+HTTP Request wo message hai jo client server ko bhejta hai kisi resource ya service ko request karne ke liye.
+Example:
+Browser → "Mujhe website ka homepage chahiye."
+Server request receive karta hai aur response bhejta hai.
+________________________________________
+6. HTTP Response
+Server client ki request process karne ke baad HTTP Response send karta hai.
+Response ke mainly 2 important parts hote hain:
+Response Header
+Response ke baare mein metadata/information contain karta hai.
+Response Body
+Requested actual content/data contain karta hai.
+Example: Webpage ka HTML response body mein ho sakta hai.
+________________________________________
+7. Important GET Request Fields
+Scheme
+Batata hai ki kaunsa protocol use ho raha hai.
+Examples:
+http
+https
+________________________________________
+Host
+Batata hai ki request kis website/server ke host name ko ki gayi hai.
+Example:
+https://www.iamlearning.thm/contact
+Host = www.iamlearning.thm
+________________________________________
+Filename
+Batata hai ki host se kaunsa resource/file request kiya gaya hai.
+Example:
+https://example.com/index.html
+Filename = index.html
+Agar URL ke end mein / ho, to generally default page jaise index.html serve ho sakta hai.
+________________________________________
+Address
+Website/server ka IP Address show karta hai.
+Example:
+127.0.0.1
+127.0.0.1 ko localhost kaha jata hai, yani same machine/device.
+________________________________________
+Status Code
+Batata hai ki request ka result kya raha.
+Common Status Codes:
+200 OK → Request successful
+404 Not Found → Resource nahi mila
+403 Forbidden → Access denied
+500 Internal Server Error → Server-side error
+________________________________________
+8. Browser Developer Tools
+Browser ke Developer Tools se hum website ke requests aur responses inspect kar sakte hain.
+Network tab mein hum dekh sakte hain:
+•	HTTP Requests
+•	HTTP Responses
+•	GET Requests
+•	Status Codes
+•	Headers
+•	Response Data
+Cybersecurity mein importance: Web traffic ko understand aur analyze karne ke liye Developer Tools useful hain.
+________________________________________
+EXAMPLE
+URL:
+https://www.iamlearning.thm/contact
+Breakdown:
+Scheme: https
+Host: www.iamlearning.thm
+Path/Resource: /contact
+________________________________________
+TRYHACKME QUESTIONS & ANSWERS
+Q1. What does HTTP stand for?
+Ans: Hypertext Transfer Protocol
+Q2. What does HTTPS stand for?
+Ans: Hypertext Transfer Protocol Secure
+Q3. Is HTTP stateful or stateless?
+Ans: Stateless
+Q4. What does stateless mean?
+Ans: Each request is processed independently without the server automatically retaining information about previous requests.
+Q5. Name the 9 core HTTP methods.
+Ans: GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, CONNECT, TRACE
+Q6. What is the purpose of the GET method?
+Ans: To retrieve a resource from a web server.
+Q7. What are the two main parts of an HTTP response?
+Ans: Response Header and Response Body
+Q8. What does the Response Header contain?
+Ans: Metadata about the response.
+Q9. What does the Response Body contain?
+Ans: The requested content/data.
+Q10. What does the Scheme tell us?
+Ans: Which protocol is being used, such as HTTP or HTTPS.
+Q11. What does the Host tell us?
+Ans: The name of the host/server from which resources are requested.
+Q12. What does the Address field show?
+Ans: The IP address where the website is hosted.
+Q13. What does HTTP status code 200 OK mean?
+Ans: The request was successful.
+Q14. What would be the host in the following URL?
+https://www.iamlearning.thm/contact
+Ans: www.iamlearning.thm
+Q15. What would be the scheme in the following URL?
+https://www.iamlearning.thm/contact
+Ans: https
+________________________________________
+🔥 LAST-MINUTE REVISION
+HTTP/HTTPS → Web communication protocol
+HTTP → Stateless
+GET → Resource retrieve karna
+Request → Client → Server
+Response → Server → Client
+Header → Metadata
+Body → Actual Content
+Scheme → HTTP/HTTPS
+Host → Website/Server Name
+Address → IP Address
+200 OK → Successful Request
+127.0.0.1 → Localhost
+URL Breakdown:
+https://www.iamlearning.thm/contact
+https → Scheme
+www.iamlearning.thm → Host
+/contact → Requested Path/Resource
+🔥 Main Concept:
+Browser (Client) → GET Request → Web Server → HTTP Response → Browser
+HTTP = Stateless, lekin Cookies, Sessions aur Tokens ki help se modern websites user ki state maintain kar sakti hain.
+
+
