@@ -1,0 +1,612 @@
+# TryHackMe — Pre Security Path: Complete Revision Notes
+
+> **Path snapshot:** 7 modules · 31 hands-on rooms · ~19h 10m estimated · Difficulty: **Easy**
+>
+> **Heads up:** TryHackMe revamped Pre Security on **18 Feb 2026**. These notes follow the *current* live structure (checked directly against tryhackme.com/path/outline/presecurity). If your memory of the path has "Linux Fundamentals 1–3", "Windows Fundamentals 1–3", or a standalone "Cryptography" module, that's the **old/legacy** version — it's been reorganised into the more granular modules below (Computer Fundamentals, Operating Systems Basics, Software Basics, etc.).
+
+### How to use this guide
+- Structured exactly as TryHackMe structures it: **Module → Room**, in order.
+- **Bold terms** = definitions you should know cold.
+- Tables and code blocks = the "memorise this" content.
+- Section 8 (Cheat Sheets) and Section 9 (Rapid Q&A) are built for last-minute review.
+
+---
+
+## Contents
+1. [Introduction to Cyber Security](#module-1-introduction-to-cyber-security)
+2. [Computer Fundamentals](#module-2-computer-fundamentals)
+3. [Operating Systems Basics](#module-3-operating-systems-basics)
+4. [Software Basics](#module-4-software-basics)
+5. [Network Fundamentals](#module-5-network-fundamentals)
+6. [How The Web Works](#module-6-how-the-web-works)
+7. [Attacks and Defenses](#module-7-attacks-and-defenses)
+8. [Cheat Sheets](#cheat-sheets)
+9. [Rapid Revision Q&A](#rapid-revision-qa)
+10. [What's Next After Pre Security](#whats-next-after-pre-security)
+
+---
+
+## Path Overview
+
+| # | Module | Rooms | What it's really about |
+|---|--------|-------|--------------------------|
+| 1 | Introduction to Cyber Security | 3 | Offense vs defense mindset, careers |
+| 2 | Computer Fundamentals | 5 | Hardware, device types, virtualisation, cloud |
+| 3 | Operating Systems Basics | 5 | Windows & Linux, CLI, OS security |
+| 4 | Software Basics | 5 | Binary/hex, encoding, Python, JS, SQL |
+| 5 | Network Fundamentals | 5 | IP/MAC, OSI model, TCP/UDP, LANs |
+| 6 | How The Web Works | 4 | DNS, HTTP, front-end/back-end, full request lifecycle |
+| 7 | Attacks and Defenses | 4 | CIA triad, cryptography, choosing red or blue team |
+
+**31 rooms total.** Completing the path unlocks a certificate of completion and counts toward TryHackMe's **SEC0 Professional Certification** (foundational security knowledge).
+
+---
+
+## Module 1: Introduction to Cyber Security
+*Rooms: Offensive Security Intro · Defensive Security Intro · Careers in Cyber*
+
+### 1.1 Offensive Security Intro
+- **Offensive security** = legally simulating an attacker's actions to find weaknesses *before* a real attacker does. Also called **ethical hacking** / **penetration testing**.
+- The room walks you through a hands-on scenario: enumerate a fake banking site ("FakeBank"), find a hidden admin login via directory brute-forcing (tool: **Gobuster**), and access it — a taste of a real engagement.
+- Key vocabulary:
+  - **Vulnerability** — a weakness in a system.
+  - **Exploit** — a technique/tool that takes advantage of a vulnerability.
+  - **Enumeration** — actively gathering information about a target (open ports, hidden directories, usernames…) to find weak points.
+  - **Scope** — the exact systems/actions you are *authorised* to test. Anything outside scope is off-limits — testing without permission is illegal, full stop.
+- Roles that live here: **Penetration Tester**, **Red Teamer**, **Bug Bounty Hunter**.
+
+### 1.2 Defensive Security Intro
+- **Defensive security ("Blue Team")** = protecting systems, spotting intrusions, and responding to incidents.
+- Everything defenders do maps back to the **CIA Triad** (Confidentiality, Integrity, Availability — full detail in Module 7).
+- Core defensive functions:
+  - **SOC (Security Operations Center)** — a team that monitors alerts/logs around the clock.
+  - **Threat Intelligence** — researching attacker tools, techniques, and motives.
+  - **Digital Forensics & Incident Response (DFIR)** — investigating *after* a breach: what happened, how, and what was touched.
+  - **Malware Analysis** — reverse-engineering malicious files to understand their behaviour.
+- SOC analyst tiers (common industry model):
+  - **Tier 1** — Triage: watches alerts, filters false positives, escalates real ones.
+  - **Tier 2** — Incident Responder: deep-dives escalated alerts, contains threats.
+  - **Tier 3** — Threat Hunter: proactively searches for hidden/undetected threats.
+
+### 1.3 Careers in Cyber
+- Cyber security is not just "hacking" — it's a large field with many non-offensive roles.
+- Common entry points and roles:
+
+| Path | Example roles |
+|------|----------------|
+| Offensive | Penetration Tester, Red Teamer, Bug Bounty Hunter |
+| Defensive | SOC Analyst, Incident Responder, Threat Hunter |
+| Governance | GRC Analyst, Security Auditor, Compliance Officer |
+| Engineering | Security Engineer, Cloud Security Engineer, Security Architect |
+| Specialist | Malware Analyst, Digital Forensics Investigator, AppSec Engineer |
+
+- People enter cyber from many backgrounds — IT support, sysadmin, software development, or straight out of study. There's no single "correct" route in.
+- Soft skills matter as much as technical skills: curiosity, persistent problem-solving, and the ability to explain risk to a non-technical audience (report writing is a huge part of many roles).
+
+
+---
+
+## Module 2: Computer Fundamentals
+*Rooms: Inside a Computer System · Computer Types · Client-Server Basics · Virtualisation Basics · Cloud Computing Fundamentals*
+
+### 2.1 Inside a Computer System
+Core hardware components and why each one matters for security work:
+
+| Component | Function | Security relevance |
+|-----------|----------|---------------------|
+| **CPU** (Central Processing Unit) | Executes instructions; speed ≈ core count × clock speed | Bottleneck for brute-force/crypto operations |
+| **RAM** (Random Access Memory) | Temporary, **volatile** working memory — wiped on reboot | Holds *active* processes, and often passwords/keys in plaintext while running → basis of RAM/memory forensics and cold-boot attacks |
+| **Storage** (HDD/SSD) | **Persistent** — holds the OS, files, apps | Where forensic evidence and artefacts live long-term |
+| **Motherboard** | Physically connects every component | — |
+| **GPU** (Graphics Processing Unit) | Massively parallel processing | Used (by both sides) for fast password/hash cracking |
+| **NIC** (Network Interface Card) | Connects the machine to a network | Provides the device's **MAC address** |
+| **PSU** (Power Supply Unit) | Converts mains power to component-usable power | — |
+
+### 2.2 Computer Types
+- **Desktop/Laptop** — general-purpose, end-user machines; the most common attack surface (phishing, malware delivery).
+- **Server** — usually headless (no GUI/monitor), always-on, runs services other devices connect to (web, database, file servers).
+- **Mobile devices** — smartphones/tablets (iOS/Android); still "just a computer" but with a different OS and app model.
+- **Embedded / IoT devices** — purpose-built hardware (routers, cameras, smart thermostats). Frequently under-secured — default credentials and unpatched firmware make them common targets.
+- *Why it matters:* knowing the device type tells you what's likely exposed (a server's open services vs. a laptop's user-driven attack surface vs. an IoT device's default password).
+
+### 2.3 Client-Server Basics
+- **Client-server model:** the **client** requests a service; the **server** provides/responds to it.
+- A single server can handle many clients at once.
+- Examples: web browser (client) ↔ web server (HTTP) · email app (client) ↔ mail server (SMTP/IMAP) · SSH client ↔ SSH server.
+- Contrast: **Peer-to-Peer (P2P)** — every node acts as both client *and* server (e.g., BitTorrent) — no central server.
+
+### 2.4 Virtualisation Basics
+- **Virtualisation** = running multiple independent "virtual" computers (**VMs**) on one physical machine.
+- **Hypervisor** = the software that creates and manages VMs:
+  - **Type 1 (bare-metal)** — runs directly on hardware (VMware ESXi, Hyper-V) — used in datacentres/enterprise.
+  - **Type 2 (hosted)** — runs on top of a host OS (VirtualBox, VMware Workstation) — used for personal labs.
+- Why it matters in security: an isolated, disposable environment to safely detonate malware, test exploits, or run vulnerable practice machines (exactly what TryHackMe itself does with target VMs!) without risking the host.
+- **Snapshots** — save a VM's exact state so you can instantly revert after something goes wrong (or after intentionally breaking it).
+- **Containers** (e.g. Docker) — a *lighter-weight* alternative that shares the host OS kernel instead of virtualising full hardware — faster to spin up, less isolated than a full VM.
+
+### 2.5 Cloud Computing Fundamentals
+- **Cloud computing** = renting computing resources over the internet instead of owning physical hardware.
+- Service models (control vs. convenience trade-off):
+
+| Model | You manage | Provider manages | Example |
+|-------|-----------|-------------------|---------|
+| **IaaS** (Infrastructure as a Service) | OS, runtime, apps, data | Physical hardware, virtualisation | AWS EC2, Azure VMs |
+| **PaaS** (Platform as a Service) | Application code & data | OS, servers, runtime | Heroku, AWS Elastic Beanstalk |
+| **SaaS** (Software as a Service) | Just your data/config | Everything else | Gmail, Microsoft 365 |
+
+- Deployment models: **Public cloud** (shared infrastructure — AWS/Azure/GCP), **Private cloud** (dedicated to one organisation), **Hybrid cloud** (mix of both).
+- **Shared Responsibility Model** — the provider secures the cloud *itself* (physical datacentres, hypervisor); the customer secures what they put *in* the cloud (data, access permissions, configuration). Misconfigured cloud storage (e.g. a public S3 bucket) is one of the most common real-world breach causes.
+- Major providers: **AWS**, **Microsoft Azure**, **Google Cloud Platform (GCP)**.
+
+---
+
+## Module 3: Operating Systems Basics
+*Rooms: Operating Systems: Introduction · Windows Basics · Linux CLI Basics · Windows CLI Basics · Operating System Security*
+
+### 3.1 Operating Systems: Introduction
+- An **Operating System (OS)** is software that manages hardware and provides a platform for applications to run on.
+- Core functions: **process management**, **memory management**, **file system management**, **device management**, **user interface**.
+- The **kernel** is the core of the OS — it mediates every interaction between hardware and software.
+- Major families: **Windows**, **Linux** (many distributions — Ubuntu, Debian, Kali, etc.), **macOS**.
+- Nearly every attack, and every defence, ultimately happens *through* an OS — this is why understanding one deeply is non-negotiable in security.
+
+### 3.2 Windows Basics
+- The most common desktop OS worldwide; primarily graphical (**GUI**).
+- Key interface elements: **Desktop**, **Start Menu**, **Taskbar**, **File Explorer**.
+- File system: **NTFS**; drives use letters (`C:\`, `D:\`…).
+- Important default folders:
+
+| Folder | Contains |
+|--------|----------|
+| `C:\Windows` | Core OS files |
+| `C:\Program Files` | Installed applications |
+| `C:\Users` | Individual user profiles/data |
+
+- User accounts: **Administrator** (full system control) vs **Standard user** (limited — can't change system-wide settings).
+- **Control Panel** / **Settings app** — the main hub for system configuration.
+
+### 3.3 Linux CLI Basics
+- Linux is largely driven from the **command line** (a shell/terminal) — dominant on servers and the backbone of most security tooling (e.g. Kali Linux).
+
+```bash
+pwd                 # print working directory (where am I?)
+ls                  # list files/folders in current directory
+ls -la              # list ALL files (incl. hidden) with details
+cd /path/to/dir     # change directory
+cat file.txt        # print a file's contents
+touch newfile.txt   # create an empty file
+mkdir new_folder    # create a directory
+cp file1 file2      # copy
+mv file1 file2      # move / rename
+rm file.txt         # delete a file
+whoami              # show current user
+man ls              # manual/help page for a command
+```
+
+- Linux filesystem hierarchy (all one tree, rooted at `/`):
+
+| Path | Purpose |
+|------|---------|
+| `/` | Root of the entire filesystem |
+| `/home` | Personal user directories |
+| `/etc` | System-wide configuration files |
+| `/var` | Variable data — logs, mail, caches |
+| `/bin`, `/usr/bin` | Essential executables/binaries |
+| `/root` | The root (admin) user's home directory |
+
+### 3.4 Windows CLI Basics
+- Two main text-based interfaces: **Command Prompt (cmd.exe)** — older, simpler — and **PowerShell** — newer, far more powerful, object-oriented.
+
+```cmd
+dir                 # list files (Windows equivalent of Linux 'ls')
+cd C:\path          # change directory
+ipconfig            # show network configuration
+whoami              # show current user
+net user            # list/manage local user accounts
+systeminfo          # detailed system information
+tasklist            # list running processes
+```
+
+- **PowerShell** commands follow a **Verb-Noun** naming pattern, e.g. `Get-Process`, `Get-ChildItem` (≈ `ls`/`dir`), `Get-Content` (≈ `cat`) — far more scriptable than cmd.exe, and central to modern Windows administration *and* attacker tradecraft.
+
+### 3.5 Operating System Security
+Core hardening/defence concepts that apply to any OS:
+- **Patching/updates** — closing known vulnerabilities before they're exploited.
+- **Least privilege** — accounts and processes should only have the permissions they actually need.
+- **Antivirus / endpoint protection** — detects and blocks known-malicious software.
+- **Host-based firewalls** — filter traffic in and out of the individual machine.
+- **Authentication** — strong passwords, **MFA (Multi-Factor Authentication)**.
+- **Logging & auditing** — Windows **Event Viewer**, Linux **syslog** — the record you rely on during an investigation.
+- **Hardening** — disabling unused services/ports to shrink the attack surface.
+
+---
+
+## Module 4: Software Basics
+*Rooms: Data Representation · Data Encoding · Python: Simple Demo · JavaScript: Simple Demo · Database SQL Basics*
+
+### 4.1 Data Representation
+- Computers store *everything* as **binary** (1s and 0s).
+- **Bit** = a single binary digit. **Byte** = 8 bits.
+- Number systems you must be able to convert between:
+
+| System | Base | Digits used | Example |
+|--------|------|-------------|---------|
+| Binary | 2 | 0–1 | `01000001` |
+| Decimal | 10 | 0–9 | `65` |
+| Hexadecimal | 16 | 0–9, A–F | `0x41` |
+
+- **ASCII** maps numbers to text characters — e.g. the letter **'A'** = decimal `65` = hex `0x41` = binary `01000001`.
+- Hex shows up constantly in security work: memory addresses, MAC addresses, colour codes, hash output — because it's a compact, human-friendlier stand-in for binary.
+
+### 4.2 Data Encoding
+- **Encoding ≠ Encryption — this trips people up constantly.** Encoding reformats data for *compatibility/transport*; it uses a known, public algorithm and is trivially reversible. It provides **zero confidentiality**.
+- Common encodings you'll recognise on sight:
+  - **Base64** — encodes binary/text as printable ASCII. Charset `A–Z a–z 0–9 + /`, often padded with `=` at the end. Extremely common in web traffic, email attachments, and (mis-used) as light obfuscation in malware/CTFs.
+  - **URL encoding (percent-encoding)** — e.g. a space becomes `%20`, `&` becomes `%26`.
+  - **Hex encoding** — raw bytes shown as hex pairs.
+- Attackers often encode payloads to slip past naive filters — but decoding is always possible by design, which is exactly why encoding must never be mistaken for security.
+
+### 4.3 Python: Simple Demo
+- **Python** — high-level, readable scripting language; a cornerstone of security automation, exploit/tool writing, and CTF solve-scripts.
+- Basics introduced: variables, `print()`, core data types (string, integer, list), `if` statements, loops.
+
+```python
+name = "TryHackMe"
+print("Hello, " + name + "!")
+
+for i in range(3):
+    print(i)
+```
+
+### 4.4 JavaScript: Simple Demo
+- **JavaScript** runs **client-side**, inside the browser — it's what makes web pages interactive.
+- Directly relevant to web security: **Cross-Site Scripting (XSS)** attacks work by injecting malicious JavaScript that then runs in a victim's browser.
+- Basics introduced: variables (`let`, `const`), functions, `console.log()`, basic DOM interaction.
+
+```javascript
+let name = "TryHackMe";
+console.log("Hello, " + name + "!");
+```
+
+- Key distinction to remember: JavaScript typically executes **client-side** (on the user's machine, inside their browser — visible/alterable by the user), while Python is more often used **server-side** (on infrastructure the user never sees or touches directly).
+
+### 4.5 Database SQL Basics
+- **SQL (Structured Query Language)** — the standard language for interacting with relational databases.
+- Structure: **Database → Tables → Rows (records) & Columns (fields)**.
+- Core statements:
+
+```sql
+SELECT * FROM users;                          -- retrieve data
+SELECT username FROM users WHERE id = 1;      -- retrieve with a filter
+INSERT INTO users (username, password) VALUES ('bob', 'pass123');
+UPDATE users SET password = 'newpass' WHERE username = 'bob';
+DELETE FROM users WHERE username = 'bob';
+```
+
+- **Why this room exists in Pre Security:** understanding legitimate SQL is the prerequisite for understanding **SQL Injection (SQLi)** — one of the most critical and common web vulnerabilities, where untrusted user input gets concatenated straight into a query and changes its logic.
+
+---
+
+## Module 5: Network Fundamentals
+*Rooms: What is Networking? · Intro to LAN · OSI Model · Packets & Frames · Extending Your Network*
+
+### 5.1 What is Networking?
+- A **network** = two or more devices connected together to communicate and share resources.
+- **IP address** — the *logical* address identifying a device on a network.
+  - **IPv4** — 32-bit, written as four decimal octets (0–255), e.g. `192.168.1.10`.
+  - **IPv6** — 128-bit, written in hex, created to solve IPv4 address exhaustion.
+- **MAC address** — the *physical* address burned into a NIC at manufacture (48-bit, e.g. `00:1A:2B:3C:4D:5E`); used for delivery on the local network segment.
+- **Public vs Private IP** — private ranges are not routable on the public internet directly:
+
+| Private range | CIDR |
+|----------------|------|
+| `10.0.0.0 – 10.255.255.255` | `10.0.0.0/8` |
+| `172.16.0.0 – 172.31.255.255` | `172.16.0.0/12` |
+| `192.168.0.0 – 192.168.255.255` | `192.168.0.0/16` |
+
+### 5.2 Intro to LAN
+- **LAN (Local Area Network)** — a network confined to one location (home, office, campus).
+- Topologies:
+  - **Star** — every device connects to one central switch (the standard today).
+  - **Bus** — all devices share a single central cable.
+  - **Ring** — each device connects to exactly two neighbours, forming a loop.
+- **Subnetting** — splitting a network into smaller sub-networks using a **subnet mask** (e.g. `255.255.255.0` = `/24`).
+- **ARP (Address Resolution Protocol)** — resolves an IP address to a MAC address *on the local network*.
+- **DHCP (Dynamic Host Configuration Protocol)** — automatically hands out IP addresses (and other config) to devices as they join a network.
+
+### 5.3 OSI Model
+The 7-layer conceptual model for how data moves across a network. **Know every layer, its unit of data, and an example.**
+
+| Layer | Name | Deals with | Example |
+|-------|------|-----------|---------|
+| 7 | **Application** | User-facing protocols | HTTP, FTP, DNS |
+| 6 | **Presentation** | Data formatting/translation, encryption | SSL/TLS (conceptually) |
+| 5 | **Session** | Establishing, managing, ending sessions | — |
+| 4 | **Transport** | End-to-end delivery, ports | TCP, UDP |
+| 3 | **Network** | Logical addressing & routing | IP, routers |
+| 2 | **Data Link** | Physical/MAC addressing | Switches, frames |
+| 1 | **Physical** | Raw bits over a medium | Cables, radio, hubs |
+
+- **Mnemonic (top → bottom, 7→1):** *"All People Seem To Need Data Processing"*
+- **Mnemonic (bottom → top, 1→7):** *"Please Do Not Throw Sausage Pizza Away"*
+
+### 5.4 Packets & Frames
+- As data travels down the stack it gets wrapped with a new header at each layer — **encapsulation**: `Data → Segment (L4) → Packet (L3) → Frame (L2) → Bits (L1)`.
+- **TCP (Transmission Control Protocol)** — connection-oriented, reliable, ordered delivery. Every connection starts with the **3-way handshake**:
+
+```
+Client  --- SYN --->        Client wants to connect
+Client  <-- SYN-ACK ---     Server acknowledges + agrees
+Client  --- ACK --->        Client confirms — connection established
+```
+
+- **UDP (User Datagram Protocol)** — connectionless, no handshake, no delivery guarantee, but faster/lighter — used for DNS, streaming, gaming, VoIP.
+- **Ports** identify a specific *application/service* on a device (range `0–65535`; well-known ports `0–1023`).
+
+| Port | Service |
+|------|---------|
+| 21 | FTP |
+| 22 | SSH |
+| 23 | Telnet |
+| 25 | SMTP |
+| 53 | DNS |
+| 80 | HTTP |
+| 443 | HTTPS |
+| 3389 | RDP |
+
+### 5.5 Extending Your Network
+- **Switch** — Layer 2 device; connects devices *within* a LAN, learns MAC addresses to forward frames only where needed.
+- **Router** — Layer 3 device; connects *different* networks together and routes packets based on IP address.
+- **Firewall** — filters traffic in/out based on rules (source/destination IP, port, protocol).
+- **Port forwarding** — redirects traffic hitting a router's external port to a specific internal device (e.g. exposing a home server to the internet).
+- **NAT (Network Address Translation)** — lets many devices with private IPs share a single public IP address.
+- **VPN (Virtual Private Network)** — builds an encrypted tunnel across the public internet, extending a private network securely. (This is literally how you connect to TryHackMe's own lab network — via OpenVPN!)
+
+---
+
+## Module 6: How The Web Works
+*Rooms: DNS in Detail · HTTP in Detail · How Websites Work · Putting it all together*
+
+### 6.1 DNS in Detail
+- **DNS (Domain Name System)** — the "phonebook of the internet"; translates human-readable domain names into IP addresses.
+- Common record types:
+
+| Record | Maps to |
+|--------|---------|
+| **A** | Domain → IPv4 address |
+| **AAAA** | Domain → IPv6 address |
+| **CNAME** | Domain → another domain (alias) |
+| **MX** | Domain → mail server |
+| **TXT** | Arbitrary text (SPF, ownership verification, etc.) |
+| **NS** | Domain → authoritative nameserver |
+
+- Resolution process (simplified): **Browser → Recursive resolver (e.g. your ISP or 8.8.8.8) → Root server → TLD server (.com/.org/…) → Authoritative nameserver → IP address returned**.
+- **TTL (Time To Live)** — how long a resolver is allowed to cache a record before asking again.
+- Security relevance: **DNS spoofing/poisoning**, **subdomain takeover**, and **DNS tunneling** (using DNS queries to smuggle data past a firewall).
+
+### 6.2 HTTP in Detail
+- **HTTP (HyperText Transfer Protocol)** — the request/response protocol that powers the web.
+- Methods:
+
+| Method | Purpose |
+|--------|---------|
+| `GET` | Retrieve data |
+| `POST` | Submit/send data |
+| `PUT` | Update/replace a resource |
+| `DELETE` | Remove a resource |
+| `HEAD` | Like GET, but headers only (no body) |
+| `OPTIONS` | Ask what methods are supported |
+
+- Status codes:
+
+| Range | Meaning | Example |
+|-------|---------|---------|
+| 1xx | Informational | 100 Continue |
+| 2xx | Success | 200 OK |
+| 3xx | Redirection | 301 Moved Permanently, 302 Found |
+| 4xx | Client error | 404 Not Found, 403 Forbidden, 401 Unauthorized |
+| 5xx | Server error | 500 Internal Server Error |
+
+- **Headers** carry metadata with a request/response, e.g. `User-Agent`, `Cookie`, `Content-Type`, `Set-Cookie`.
+- **HTTPS = HTTP + TLS/SSL** — encrypts the connection and lets the client verify the server's identity via a **certificate**.
+
+### 6.3 How Websites Work
+- **Front-end (client-side)** — what the user sees and touches, rendered *in the browser*:
+  - **HTML** — structure/content
+  - **CSS** — styling/layout
+  - **JavaScript** — interactivity
+- **Back-end (server-side)** — handles logic, talks to the database, builds dynamic responses. Written in languages like Python, PHP, Node.js/JavaScript, Java, etc., and served by software such as **Apache**, **Nginx**, or **IIS**.
+- **Database** — persistent storage the back-end queries (often SQL — see 4.5).
+- Mental model: **Browser (front-end)** → request → **Web server / back-end logic** → query → **Database** → response flows back up → **Browser renders it**.
+
+### 6.4 Putting it all together
+This room chains everything above into one sequence — what *actually* happens the instant you type a URL and hit Enter. This is the single best "exam summary" of the whole path:
+
+1. **DNS lookup** — domain name resolved to an IP address.
+2. **TCP 3-way handshake** — client and server establish a connection.
+3. **TLS handshake** — (if HTTPS) encryption is negotiated.
+4. **HTTP request sent** — e.g. a `GET /` request.
+5. **Server processes it** — back-end logic runs, database may be queried.
+6. **HTTP response returned** — status code + headers + body (HTML/CSS/JS/data).
+7. **Browser renders the page.**
+
+> Every single step above is a potential attack surface — DNS spoofing at step 1, MITM at steps 2–3, injection at step 5, XSS at step 7, and so on. This is *why* the path builds up to it last.
+
+---
+
+## Module 7: Attacks and Defenses
+*Rooms: The CIA Triad · Cryptography Concepts · Become a Hacker · Become a Defender*
+
+### 7.1 The CIA Triad
+The three goals that (almost) every security control or attack can be mapped back to:
+
+| Principle | Definition | Achieved via | Broken by |
+|-----------|-------------|---------------|-----------|
+| **Confidentiality** | Only authorised parties can access data | Encryption, access controls | Data breaches, eavesdropping |
+| **Integrity** | Data can't be altered without detection | Hashing, checksums, digital signatures | Tampering, MITM attacks |
+| **Availability** | Systems/data are accessible when needed | Redundancy, backups, DDoS protection | DDoS, ransomware, hardware failure |
+
+- Practice mapping real attacks to the triad — e.g. **ransomware** hits Availability (and often Confidentiality); a **DDoS attack** hits Availability only; a **Man-in-the-Middle (MITM)** attack threatens both Confidentiality and Integrity.
+
+### 7.2 Cryptography Concepts
+- **Three concepts people constantly confuse — know the difference cold:**
+
+| Concept | Reversible? | Purpose | Example |
+|---------|-------------|---------|---------|
+| **Encoding** | Yes, by anyone (public method) | Compatibility/transport — **not security** | Base64 |
+| **Encryption** | Yes, but only with the correct key | Confidentiality | AES, RSA |
+| **Hashing** | No (one-way) | Integrity / password storage | MD5, SHA-256 |
+
+- **Symmetric encryption** — the *same* key encrypts and decrypts (fast; e.g. **AES**). Challenge: securely sharing that key in the first place.
+- **Asymmetric encryption** — a **key pair**: a **public key** (share freely, used to encrypt / verify) and a **private key** (kept secret, used to decrypt / sign) — e.g. **RSA**. Solves the key-distribution problem and enables digital signatures.
+- **Hashing** — always produces a **fixed-length** output; the same input always produces the same hash; used to verify file integrity and to store passwords (with **salting**, to defeat pre-computed rainbow-table attacks).
+- **How HTTPS uses both:** asymmetric crypto is used *once*, up front, to securely exchange a temporary symmetric session key — then fast symmetric crypto handles the actual bulk data transfer.
+
+### 7.3 Become a Hacker
+- A capstone/reflection room from the **attacker's** perspective, applying the CIA triad and cryptography concepts you just learned.
+- Reinforces core vocabulary: **Threat, Vulnerability, Exploit, Enumeration**.
+- Signposts the natural next path if this resonates: offensive routes such as **Jr Penetration Tester**, CTFs, and eventually bug bounty work.
+
+### 7.4 Become a Defender
+- The mirror-image capstone room from the **defender's ("Blue Team")** perspective.
+- Core vocabulary to lock in:
+
+| Term | Meaning |
+|------|---------|
+| **Threat** | A potential danger (a hacker, malware…) that could harm systems/data |
+| **Prevention** | Stopping threats *before* they cause harm |
+| **Detection** | Identifying threats/suspicious activity as/after they occur |
+| **Mitigation** | Reducing or stopping the impact of an identified threat |
+| **Risk** | The likelihood *and* potential impact of a threat succeeding |
+
+- Signposts the natural next path if this resonates: defensive routes such as **SOC Level 1** and **Cyber Defense**.
+
+---
+
+## Cheat Sheets
+
+### A. OSI Model (memorise top to bottom)
+| # | Layer | Unit | Keyword |
+|---|-------|------|---------|
+| 7 | Application | Data | HTTP, DNS, FTP |
+| 6 | Presentation | Data | Encryption/formatting |
+| 5 | Session | Data | Session mgmt |
+| 4 | Transport | Segment | TCP/UDP, ports |
+| 3 | Network | Packet | IP, routers |
+| 2 | Data Link | Frame | MAC, switches |
+| 1 | Physical | Bits | Cables, hubs |
+
+### B. Common Ports
+| Port | Service | Port | Service |
+|------|---------|------|---------|
+| 21 | FTP | 80 | HTTP |
+| 22 | SSH | 443 | HTTPS |
+| 23 | Telnet | 445 | SMB |
+| 25 | SMTP | 3306 | MySQL |
+| 53 | DNS | 3389 | RDP |
+
+### C. HTTP Status Codes
+| Code range | Meaning |
+|------------|---------|
+| 2xx | Success |
+| 3xx | Redirection |
+| 4xx | Client-side error |
+| 5xx | Server-side error |
+
+### D. Linux ↔ Windows CLI Equivalents
+| Task | Linux | Windows (cmd) |
+|------|-------|----------------|
+| List files | `ls` | `dir` |
+| Change directory | `cd` | `cd` |
+| Show current dir | `pwd` | `cd` (no args) |
+| Current user | `whoami` | `whoami` |
+| Copy file | `cp` | `copy` |
+| View network config | `ifconfig` / `ip a` | `ipconfig` |
+| View processes | `ps` | `tasklist` |
+| View a file | `cat` | `type` |
+
+### E. Encoding vs Encryption vs Hashing
+| | Reversible | Needs a key | Goal |
+|---|---|---|---|
+| Encoding | ✅ always | ❌ | Compatibility |
+| Encryption | ✅ with key | ✅ | Confidentiality |
+| Hashing | ❌ never | ❌ | Integrity |
+
+### F. Number System Quick Convert
+| Decimal | Binary | Hex |
+|---------|--------|-----|
+| 0 | 0000 | 0x0 |
+| 8 | 1000 | 0x8 |
+| 15 | 1111 | 0xF |
+| 65 ('A') | 01000001 | 0x41 |
+| 255 | 11111111 | 0xFF |
+
+---
+
+## Rapid Revision Q&A
+Cover the answer column and test yourself — this is the fastest way to find your weak spots.
+
+**Module 1 — Intro to Cyber Security**
+| Question | Answer |
+|----------|--------|
+| What's the difference between a vulnerability and an exploit? | A vulnerability is the weakness; an exploit is the technique that takes advantage of it |
+| What does "scope" mean in offensive security? | The exact systems/actions you're authorised to test — anything outside it is off-limits |
+| Name the 3 SOC analyst tiers | Tier 1 (Triage), Tier 2 (Incident Responder), Tier 3 (Threat Hunter) |
+
+**Module 2 — Computer Fundamentals**
+| Question | Answer |
+|----------|--------|
+| Why is RAM forensically interesting? | It's volatile but can hold live passwords/keys in plaintext while the system is running |
+| What's the difference between a Type 1 and Type 2 hypervisor? | Type 1 runs on bare metal (ESXi); Type 2 runs on top of a host OS (VirtualBox) |
+| In IaaS vs PaaS vs SaaS, which gives you the most control? | IaaS (you manage OS, runtime, apps, and data) |
+
+**Module 3 — Operating Systems Basics**
+| Question | Answer |
+|----------|--------|
+| What does the kernel do? | Mediates every interaction between hardware and software |
+| Linux command to view hidden files too? | `ls -la` |
+| Windows equivalent of Linux `ifconfig`? | `ipconfig` |
+
+**Module 4 — Software Basics**
+| Question | Answer |
+|----------|--------|
+| Hex for the letter 'A'? | `0x41` (decimal 65) |
+| Is Base64 encryption? | No — it's encoding; anyone can reverse it, it offers zero confidentiality |
+| Which SQL statement retrieves data? | `SELECT` |
+
+**Module 5 — Network Fundamentals**
+| Question | Answer |
+|----------|--------|
+| Order of the TCP 3-way handshake? | SYN → SYN-ACK → ACK |
+| Which OSI layer do switches operate at? | Layer 2 (Data Link) |
+| Which OSI layer do routers operate at? | Layer 3 (Network) |
+| Default port for HTTPS? | 443 |
+
+**Module 6 — How The Web Works**
+| Question | Answer |
+|----------|--------|
+| What DNS record maps a domain to an IPv4 address? | A record |
+| HTTP status code for "Not Found"? | 404 |
+| First step when you hit Enter on a URL? | DNS lookup (resolve the domain to an IP) |
+
+**Module 7 — Attacks and Defenses**
+| Question | Answer |
+|----------|--------|
+| Which part of the CIA triad does a DDoS attack hit? | Availability |
+| Symmetric or asymmetric — which uses a public/private key pair? | Asymmetric (e.g. RSA) |
+| Why salt a password hash? | To defeat pre-computed rainbow-table attacks |
+
+---
+
+## What's Next After Pre Security
+Once you've completed all 7 modules:
+- You earn a **certificate of completion**, and your progress counts toward TryHackMe's **SEC0 Professional Certification** (proves foundational security knowledge).
+- Recommended follow-on paths, depending on which capstone room (Become a Hacker / Become a Defender) resonated more:
+  - **Cyber Security 101** — the current, broader path that replaced the old "Complete Beginner" and "Introduction to Cyber Security" paths; a good general next step either way.
+  - **Jr Penetration Tester** — if offensive security clicked; goes deep on web app attacks, exploitation, and tooling.
+  - **SOC Level 1** (and **SOC Level 2**) — if defensive security clicked; goes deep on monitoring, log analysis, and incident response — replaced the old "Cyber Defense" path.
+- Keep practising the fundamentals from this guide (OSI model, HTTP, Linux/Windows CLI, and encoding vs encryption vs hashing) — they resurface in *every* later room, regardless of which direction you take.
+
+---
+
+*Notes compiled from TryHackMe's live Pre Security path outline (verified against tryhackme.com) plus standard, stable IT/security fundamentals. Room content and question wording inside TryHackMe itself may vary slightly — use this as a revision companion alongside the actual rooms, not a replacement for doing them.*
