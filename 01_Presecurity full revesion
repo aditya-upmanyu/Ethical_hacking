@@ -3,7 +3,7 @@
 > **Path snapshot:** 7 modules · 31 hands-on rooms · ~19h 10m estimated · Difficulty: **Easy**
 >
 > **Heads up:** TryHackMe revamped Pre Security on **18 Feb 2026**. These notes follow the *current* live structure (checked directly against tryhackme.com/path/outline/presecurity). If your memory of the path has "Linux Fundamentals 1–3", "Windows Fundamentals 1–3", or a standalone "Cryptography" module, that's the **old/legacy** version — it's been reorganised into the more granular modules below (Computer Fundamentals, Operating Systems Basics, Software Basics, etc.).
-
+sss
 ### How to use this guide
 - Structured exactly as TryHackMe structures it: **Module → Room**, in order.
 - **Bold terms** = definitions you should know cold.
