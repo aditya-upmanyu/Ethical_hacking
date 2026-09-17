@@ -100,3 +100,27 @@ Website + APIs + open ports + login panels + exposed services.
 Simple:
 
 More exposed entry points = larger attack surface
+DNS Enumeration — Hinglish
+
+DNS Enumeration ka matlab hai target domain ke DNS records aur related information collect karna, jaise:
+
+A Record → Domain ka IP address
+AAAA Record → IPv6 address
+MX Record → Mail server
+NS Record → Authoritative name servers
+CNAME Record → Alias of another domain
+TXT Record → Additional text/security information
+SOA Record → Domain ki authoritative DNS information
+
+Purpose: Target ke infrastructure, subdomains, mail servers aur DNS configuration ko samajhna.
+
+Common tools: nslookup, dig, host, dnsenum
+
+Example:
+
+nslookup example.com
+dig example.com
+dig example.com MX
+dig example.com NS
+
+Exam point: DNS enumeration = DNS records collect karke target ke network/infrastructure ke baare mein information gathering karna.
