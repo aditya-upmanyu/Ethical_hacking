@@ -1,0 +1,197 @@
+7. System Hacking kya hai?
+
+System hacking ka broad meaning hai computer system ki security ko test karna aur unauthorized access/privilege-related weaknesses identify karna.
+
+Ethical hacking mein ye authorized environment mein kiya jata hai.
+
+System hacking ke major stages:
+
+Gaining Access
+Privilege Escalation
+Maintaining Access
+Covering Tracks
+8. Gaining Access
+
+Is stage ka objective system mein access obtain karna hota hai.
+
+Possible weaknesses:
+
+Weak passwords
+Vulnerable services
+Unpatched software
+Misconfiguration
+Application vulnerabilities
+9. Password Attacks ⭐
+
+Passwords authentication ka important part hain.
+
+Common password attack concepts:
+
+Brute Force
+
+Possible combinations systematically try karna.
+
+Dictionary Attack
+
+Common words/password lists use karke password guess karna.
+
+Hybrid Attack
+
+Dictionary words ke saath numbers/symbols/variations combine karke guessing.
+
+Credential Stuffing
+
+Previously leaked username-password combinations ko doosri services par try karna.
+
+10. Privilege Escalation ⭐⭐⭐
+
+Agar attacker low-privileged account se system mein enter karta hai, to higher privileges obtain karne ki attempt ko Privilege Escalation kehte hain.
+
+Vertical Privilege Escalation
+
+Low privilege → high privilege.
+
+Example:
+
+Normal User → Administrator/Root
+
+Horizontal Privilege Escalation
+
+Same privilege level ke kisi doosre user's resources access karna.
+
+Example:
+
+User A kisi weakness ki wajah se User B ka data access kar le.
+
+Yaad rakho:
+
+Vertical = Level up
+Horizontal = Same level, different user
+
+11. Maintaining Access
+
+System mein access milne ke baad attacker access ko future mein maintain karne ki attempt kar sakta hai.
+
+Ethical security testing mein is concept ko controlled environment mein evaluate kiya jata hai.
+
+12. Covering Tracks
+
+Attacker apni activity ke evidence ko hide/remove karne ki attempt kar sakta hai.
+
+Security perspective se important evidence:
+
+Logs
+Authentication records
+File changes
+Network activity
+
+Isliye logging and monitoring security ke liye important hain.
+
+MODULE 7 — Malware
+13. Malware kya hai? ⭐
+
+Malware = Malicious Software
+
+Aisa software jo system ko harm karne, unauthorized access lene, information steal karne ya unwanted activity perform karne ke liye design kiya gaya ho.
+
+14. Virus
+
+Virus ek malicious program/code hota hai jo generally kisi host file/program se attach hokar spread karta hai.
+
+Usually execution ke liye host/user interaction required ho sakta hai.
+
+Keyword:
+
+Virus → Host-dependent
+
+15. Worm ⭐
+
+Worm self-replicating malware hota hai jo networks/systems ke through automatically spread kar sakta hai.
+
+Virus vs Worm
+
+Virus → host file/program ke saath attach
+
+Worm → independently replicate/spread
+
+16. Trojan ⭐
+
+Trojan legitimate/useful software ke form mein appear kar sakta hai but internally malicious functionality contain karta hai.
+
+Example:
+
+User ko lagta hai ki woh useful application install kar raha hai, but application malicious activity perform karti hai.
+
+Keyword:
+
+Trojan → Disguise
+
+17. Spyware
+
+Spyware secretly user/system ki information monitor ya collect karne ke liye use hota hai.
+
+Possible targets:
+
+User activity
+Browsing information
+Sensitive information
+18. Keylogger
+
+Keylogger keystrokes record karne ke liye designed software/hardware ho sakta hai.
+
+Potentially capture:
+
+Usernames
+Passwords
+Messages
+Other typed information
+19. Ransomware ⭐⭐⭐
+
+Ransomware victim ke files/system ko encrypt ya otherwise inaccessible bana sakta hai aur attacker payment demand kar sakta hai.
+
+Simple flow:
+
+Infection → Data inaccessible → Ransom demand
+
+Protection:
+
+Regular backups
+Patching
+Endpoint protection
+Email security
+User awareness
+Network segmentation
+20. Rootkit
+
+Rootkit ka purpose system mein malicious presence ko hide karna aur privileged access maintain karna ho sakta hai.
+
+Keyword:
+
+Rootkit → Hide + Privileged access
+
+21. Botnet
+
+Botnet = Compromised devices ka network
+
+Compromised devices ko attacker remotely control kar sakta hai.
+
+Botnets ka use:
+
+DDoS
+Spam
+Malware distribution
+Other malicious activities
+
+mein ho sakta hai.
+
+22. Malware Distribution Methods
+
+Malware system tak different ways se pahunch sakta hai:
+
+Malicious email attachment
+Malicious links
+Compromised websites
+Untrusted software
+Removable media
+Malvertising
+Social engineering
