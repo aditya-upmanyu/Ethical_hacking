@@ -1,0 +1,140 @@
+Footprinting ke baad next logical step hai Scanning.
+
+16. Scanning kya hai?
+
+Scanning mein target network/system ko probe karke information obtain ki jaati hai.
+
+Main objectives:
+
+Live hosts find karna
+Open ports identify karna
+Services identify karna
+Versions identify karna
+Potential vulnerabilities identify karna
+17. Ports kya hote hain?
+
+Port ko simple language mein system ka communication endpoint samjho.
+
+Common ports jo tumhare sir ke notes mein hain:
+
+Port	Service
+21	FTP
+22	SSH
+23	Telnet
+25	SMTP
+53	DNS
+80	HTTP
+110	POP3
+139	NetBIOS
+143	IMAP
+443	HTTPS
+445	SMB
+3306	MySQL
+3389	RDP
+5900	VNC
+8080	HTTP Proxy/alternate HTTP
+
+Exam ke liye common ports yaad karna useful hai.
+
+18. Port States
+
+Scanning mein commonly:
+
+Open
+
+Port par service listen kar rahi hai.
+
+Closed
+
+Port reachable hai but koi service listen nahi kar rahi.
+
+Filtered
+
+Firewall/filtering ki wajah se scanner clearly determine nahi kar pa raha.
+
+19. Nmap ⭐⭐⭐
+
+Nmap = Network Mapper
+
+Network discovery aur security auditing ke liye commonly used tool.
+
+Nmap se:
+
+Hosts discover
+Ports scan
+Services identify
+Versions detect
+OS information estimate
+Scripts ke through additional checks
+
+kiye ja sakte hain.
+
+Important concepts:
+
+Host Discovery → Kaunse systems alive hain?
+
+Port Scanning → Kaunse ports open hain?
+
+Service Detection → Port par kaunsi service chal rahi hai?
+
+Version Detection → Service ka version kya hai?
+
+20. HTTP/HTTPS
+
+Sir ke scanning/enum material mein:
+
+80 → HTTP
+443 → HTTPS
+
+HTTP web communication ke liye use hota hai.
+
+Common HTTP methods:
+
+GET → data/resource retrieve
+POST → data submit
+PUT → resource update/replace
+PATCH → partial update
+DELETE → resource delete
+HEAD → headers only
+OPTIONS → supported communication options
+TRACE → diagnostic request
+CONNECT → tunnel establish
+21. HTTP Status Codes ⭐
+100–199
+
+Informational
+
+200–299
+
+Successful
+
+300–399
+
+Redirection
+
+400–499
+
+Client error
+
+500–599
+
+Server error
+
+Easy trick:
+
+1xx = Information
+2xx = Success
+3xx = Redirect
+4xx = Client mistake
+5xx = Server problem
+Extra:
+dnsenum ek DNS enumeration tool hai jo kisi domain ke DNS records, nameservers, mail servers aur possible subdomains ki information collect karta hai.
+
+Example:
+
+dnsenum example.com
+
+Simple: dnsenum = DNS information gather karne ka automated tool.
+**NetBIOS (Network Basic Input/Output System)** ek networking protocol/interface hai jo computers ko network par **name se identify aur communicate** karne mein help karta hai.
+Ye mainly **Windows/older LAN environments** mein file aur printer sharing jaise services ke liye use hota hai.
+Probing = target ko test request/packet bhejna aur uske response se information obtain karna.
