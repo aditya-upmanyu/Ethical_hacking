@@ -1,0 +1,213 @@
+MODULE 1: Introduction to Ethical Hacking
+1. Cybersecurity kya hai?
+
+Cybersecurity ka main purpose computer systems, networks, applications aur data ko unauthorized access, attack, damage ya theft se protect karna hai.
+
+Simple example:
+Agar college ka server hai, to usme students ka data hai. Cybersecurity ensure karegi ki koi unauthorized person us data ko access ya modify na kar sake.
+
+2. Information Security kya hai?
+
+Information Security (InfoSec) ka focus information/data ko protect karna hai.
+
+Iska main goal hai:
+
+Data private rahe
+Data correct rahe
+Data jab chahiye tab available rahe
+
+Isi ko samajhne ke liye CIA Triad important hai.
+
+3. CIA Triad ⭐
+
+CIA = Confidentiality + Integrity + Availability
+
+Confidentiality
+
+Information sirf authorized person ko milni chahiye.
+
+Example:
+Tumhara password kisi aur ko nahi pata hona chahiye.
+
+Integrity
+
+Information unauthorized way mein change nahi honi chahiye.
+
+Example:
+College marksheet mein kisi ne tumhare marks secretly change kar diye → Integrity compromise.
+
+Availability
+
+Information/system jab authorized user ko chahiye, tab available hona chahiye.
+
+Example:
+Exam ke time college portal down ho gaya → Availability problem.
+
+Yaad rakhna:
+
+C = Secret
+I = Correct
+A = Available
+
+4. CIA ke Additional Security Elements
+
+Sir ke material mein CIA ke saath kuch additional elements bhi diye gaye hain.
+
+Authentication
+
+Tum kaun ho? ye verify karna.
+
+Example: username + password.
+
+Authorization
+
+Tumhe kya karne ki permission hai?
+
+Example: Student marks dekh sakta hai, lekin teacher marks modify kar sakta hai.
+
+Non-Repudiation
+
+Kisi action ko later deny na kiya ja sake.
+
+Example: digitally signed transaction ka proof.
+
+Accountability
+
+System mein kisne kya action kiya, uska record maintain karna.
+
+Risk Management
+
+Possible risks ko identify karke unhe reduce/manage karna.
+
+5. Data Security mein 3 Important Problems
+Disclosure
+
+Unauthorized person ko information mil jana.
+
+Alteration
+
+Data unauthorized way mein change ho jana.
+
+Destruction
+
+Data/system/application destroy ya inaccessible ho jana.
+
+6. Cyber Kill Chain ⭐
+
+Cyber Kill Chain ek framework hai jo explain karta hai ki attacker attack ko step-by-step kaise carry out karta hai.
+
+Iske 7 stages hain:
+
+1. Reconnaissance
+
+Attacker target ke baare mein information collect karta hai.
+
+Example:
+
+IP
+employees
+network
+systems
+2. Weaponization
+
+Collected information ke basis par attacker malicious payload/tool prepare karta hai.
+
+3. Delivery
+
+Payload target tak pahunchaya jata hai.
+
+Example:
+
+Email
+Malicious link
+USB
+Vulnerable application
+4. Exploitation
+
+Attacker vulnerability exploit karke system mein entry lene ki attempt karta hai.
+
+5. Installation
+
+Malicious software/payload install karke access maintain karne ki attempt hoti hai.
+
+6. Command & Control
+
+Compromised system ko remotely control karne ke liye communication establish hota hai.
+
+7. Actions on Objectives
+
+Finally attacker apna objective achieve karta hai.
+
+Example:
+
+Data theft
+System disruption
+Unauthorized access
+Shortcut:
+
+R → W → D → E → I → C → A
+
+Reconnaissance → Weaponization → Delivery → Exploitation → Installation → Command & Control → Actions on Objectives
+
+7. TTPs ⭐
+
+TTP = Tactics, Techniques and Procedures
+
+Ye attacker ke behaviour ko describe karta hai.
+
+Tactics = WHY
+
+Attacker ka goal/objective kya hai?
+
+Example: Data steal karna.
+
+Techniques = HOW
+
+Goal achieve karne ke liye kaunsi technique use ki?
+
+Example: Phishing.
+
+Procedures = EXACTLY HOW
+
+Technique ko practically kis exact process/steps/tools se implement kiya.
+
+Easy trick:
+
+Tactics = Why
+Techniques = How
+Procedures = Exact steps
+
+8. Ethical Hacking ⭐⭐⭐
+
+Ethical hacking mein authorized security professional system/network/application ko test karta hai taaki vulnerabilities find ki ja saken.
+
+Sabse important word:
+
+PERMISSION
+
+Ethical hacker:
+
+Permission leta hai
+Vulnerabilities identify karta hai
+Controlled testing karta hai
+Findings report karta hai
+Organization ko vulnerability fix karne mein help karta hai
+
+Without permission same type ki activity illegal ho sakti hai.
+
+9. Types of Hackers
+White Hat
+
+Authorized/ethical hacker.
+
+Purpose: Security improve karna
+
+Black Hat
+
+Unauthorized malicious hacker.
+
+Purpose: theft, damage, unauthorized access etc.
+
+Gray Hat
+
+White aur black hat ke beech category; kabhi vulnerability bina permission discover/report kar sakta hai, depending on circumstances.
