@@ -1,0 +1,102 @@
+MODULE 2: Footprinting & Reconnaissance
+
+Ab actual hacking methodology ka next step.
+
+10. Footprinting kya hai?
+
+Footprinting = Target ke baare mein information collect karna.
+
+Attacker ya ethical hacker target ko samajhne ke liye information collect karta hai.
+
+Examples:
+
+Domain
+IP address
+DNS information
+Employees
+Email IDs
+Network information
+Technologies
+Subdomains
+Main idea:
+
+Target ko attack karne se pehle target ko samjho.
+
+11. Passive vs Active Reconnaissance ⭐
+Passive Reconnaissance
+
+Target se direct interaction minimum/avoid karke publicly available information collect karna.
+
+Examples:
+
+Search engines
+Social media
+Public websites
+WHOIS
+Public DNS records
+Active Reconnaissance
+
+Target ke systems/services ke saath direct interaction karke information collect karna.
+
+Examples:
+
+Ping
+DNS queries
+Traceroute
+Network scanning
+Difference:
+
+Passive → target ko directly touch nahi karna
+Active → target se directly information/query lena
+
+12. DNS Information
+
+DNS = Domain Name System
+
+Ye domain name ko IP address se associate karta hai.
+
+Example:
+
+example.com → IP address
+
+Reconnaissance mein DNS se useful information mil sakti hai, jaise:
+
+IP addresses
+DNS servers
+Mail servers
+Subdomains
+Different DNS records
+
+Sir ke material mein DNS enumeration bhi covered hai.
+
+13. WHOIS
+
+WHOIS ka use domain ke registration-related information ko identify karne ke liye kiya ja sakta hai.
+
+Information mein organization/registrar-related details mil sakti hain, depending on privacy protections.
+
+14. Search Engines & Public Information
+
+Search engines bhi reconnaissance ka important source hain.
+
+Publicly available information se attacker target ke:
+
+Employees
+Technologies
+Documents
+Subdomains
+Publicly exposed information
+
+identify kar sakta hai.
+
+15. Attack Surface
+
+Attack surface = system ke woh possible entry points jahan se attacker attack attempt kar sakta hai.
+
+Example:
+
+Website + APIs + open ports + login panels + exposed services.
+
+Simple:
+
+More exposed entry points = larger attack surface
