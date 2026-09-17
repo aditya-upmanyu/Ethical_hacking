@@ -1,0 +1,81 @@
+23. Sniffing kya hai? ⭐
+
+Sniffing = Network traffic ko capture aur analyze karna.
+
+Network mein packets travel karte hain. Sniffing tools in packets ko capture karke traffic ko analyze kar sakte hain.
+
+24. Packet
+
+Network par data usually small units mein travel karta hai jise packets kehte hain.
+
+Packet mein information ho sakti hai:
+
+Source
+Destination
+Protocol
+Ports
+Payload/data
+25. Passive Sniffing ⭐
+
+Passive sniffing mein attacker/network observer traffic ko capture karta hai without actively modifying network traffic.
+
+Example environment:
+
+Shared/broadcast-style network traffic monitoring.
+
+Keyword:
+
+Passive = Listen
+
+26. Active Sniffing ⭐
+
+Active sniffing mein attacker network traffic ko capture karne ke liye network environment ko actively influence/manipulate karne ki attempt karta hai.
+
+Common concept:
+
+ARP poisoning
+
+Keyword:
+
+Active = Manipulate + Capture
+
+27. ARP
+
+ARP = Address Resolution Protocol
+
+Local network mein IP address ko corresponding MAC address se map karne ke liye use hota hai.
+
+Example:
+
+IP → MAC
+
+28. ARP Poisoning
+
+ARP poisoning mein attacker forged ARP information ke through devices ko incorrect IP-to-MAC mapping believe karwane ki attempt karta hai.
+
+Potential result:
+
+Traffic attacker ke system ki taraf redirect ho sakta hai.
+
+Ye Man-in-the-Middle (MITM) situation create karne mein use ho sakta hai.
+
+29. MAC Flooding
+
+MAC flooding attack mein attacker switch ke MAC address table ko excessive/forged MAC entries se overwhelm karne ki attempt karta hai.
+
+Agar switch properly handle na kare, to traffic handling behavior change ho sakta hai.
+
+30. Sniffing se kya information expose ho sakti hai?
+
+Agar communication properly encrypted nahi hai, network traffic se potentially:
+
+Usernames
+Passwords
+Messages
+Cookies
+Session information
+Other sensitive data
+
+expose ho sakta hai.
+
+Isliye HTTPS/TLS aur encrypted protocols important hain.
