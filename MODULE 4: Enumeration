@@ -1,0 +1,142 @@
+MODULE 4: Enumeration
+
+Scanning se hume basic information milti hai.
+
+Enumeration us information ko aur deeply collect karti hai.
+
+22. Enumeration kya hai?
+
+Enumeration = Target ke services, users, shares, systems, protocols etc. ke baare mein detailed information gather karna.
+
+Difference:
+
+Scanning → kya available hai?
+
+Enumeration → available cheez ke baare mein detail kya hai?
+
+23. NetBIOS Enumeration
+
+NetBIOS Windows/LAN environment mein communication aur resource sharing se related technology hai.
+
+Enumeration se potentially information mil sakti hai:
+
+Computer names
+Domain information
+Shares
+Network resources
+
+Important ports:
+
+139 → NetBIOS/SMB-related traffic
+
+445 → SMB directly over TCP
+
+24. SMB
+
+SMB = Server Message Block
+
+Windows environments mein file/printer/resource sharing ke liye commonly used.
+
+TCP 445 is an important SMB port.
+
+Enumeration se shares aur related information identify ki ja sakti hai.
+
+25. SNMP Enumeration ⭐
+
+SNMP = Simple Network Management Protocol
+
+Network devices ko monitor/manage karne ke liye use hota hai.
+
+Examples:
+
+Routers
+Switches
+Servers
+Network devices
+
+UDP 161 → SNMP
+
+SNMP environment mein information potentially include kar sakti hai:
+
+Device names
+System information
+Network information
+Configuration-related information
+26. SMTP Enumeration
+
+SMTP = Simple Mail Transfer Protocol
+
+Email sending ke liye commonly used.
+
+TCP 25 → SMTP
+
+Enumeration ka purpose mail server/users ke baare mein information identify karna ho sakta hai.
+
+27. LDAP
+
+LDAP = Lightweight Directory Access Protocol
+
+Directory services ke saath interact karne ke liye use hota hai.
+
+Common port:
+
+389 → LDAP
+
+Simple example:
+
+Organization mein users/groups ki directory information manage/access karne ke context mein LDAP use ho sakta hai.
+
+28. DNS Enumeration
+
+DNS enumeration ka purpose organization ke DNS infrastructure aur records ke baare mein information collect karna hai.
+
+Potential information:
+
+DNS servers
+IP addresses
+Hostnames
+Domain-related records
+
+Sir ke notes mein dnsenum bhi mentioned hai.
+
+29. Directory Enumeration
+
+Web server par hidden/interesting directories aur resources identify karne ke liye directory enumeration ki ja sakti hai.
+
+Sir ke material mein tools mentioned hain:
+
+Feroxbuster
+Dirb
+Gobuster
+Dirsearch
+30. NTP Enumeration
+
+NTP = Network Time Protocol
+
+Systems ke time synchronization ke liye use hota hai.
+
+UDP 123 → NTP
+
+NTP enumeration se network ke systems/hosts ke baare mein additional information potentially gather ki ja sakti hai.
+
+31. Enumeration ka Overall Flow
+
+Isko exam mein aise yaad rakho:
+
+Target
+↓
+Footprinting
+↓
+Scanning
+↓
+Open Ports
+↓
+Services
+↓
+Enumeration
+↓
+Detailed Information
+
+Example:
+
+Target → Scan → Port 445 → SMB → Enumerate SMB → Shares/host information
